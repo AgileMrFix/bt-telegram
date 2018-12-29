@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efd1ce3c-8bbe-406e-a783-654387bfb5aa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/Telegram/Test.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/Telegram/Test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Telegram/Departament.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Telegram/Departament.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Telegram/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Telegram/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Telegram/SecurityCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Telegram/SecurityCode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Telegram/TelegramUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Telegram/TelegramUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,8 +73,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+            <state relative-caret-position="356">
+              <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
               <folding>
                 <element signature="e#7#389#0#PHP" expanded="true" />
               </folding>
@@ -366,12 +359,12 @@
       <option name="presentableId" value="Default" />
       <updated>1545912421439</updated>
       <workItem from="1545912447387" duration="10593000" />
-      <workItem from="1546013374660" duration="7641000" />
+      <workItem from="1546013374660" duration="8130000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18234000" />
+    <option name="totallyTimeSpent" value="18723000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -534,8 +527,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+        <state relative-caret-position="356">
+          <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
           <folding>
             <element signature="e#7#389#0#PHP" expanded="true" />
           </folding>

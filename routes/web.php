@@ -39,3 +39,9 @@ Route::get('rem', function () {
     $response = \Telegram\Bot\Laravel\Facades\Telegram::removeWebhook();
     return $response;
 });
+
+Route::get('send', function () {
+    $response = Telegram::sendMessage(['text' => 'asd', 'chat_id' => 357906340]);
+    return $response;
+});
+
