@@ -57,6 +57,6 @@ return [
     */
     'commands' => [
         Telegram\Bot\Commands\HelpCommand::class,
-        \App\Console\Commands\Telegram\Test::class
+//        \App\Console\Commands\Telegram\Test::class
     ],
 ];
