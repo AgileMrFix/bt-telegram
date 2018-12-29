@@ -31,4 +31,7 @@ Route::get('set', function (){
     return $response;
 });
 
-
+Route::get('rem', function (){
+    $response = \Telegram\Bot\Laravel\Facades\Telegram::removeWebhook();
+    return $response;
+});
