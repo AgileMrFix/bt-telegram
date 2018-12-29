@@ -18,12 +18,10 @@ class Test extends Command
      */
     public function handle($arguments)
     {
-        $commands = $this->telegram->getCommands();
+        $this->replyWithMessage(['text'=>'hyjnja']);
 
         $text = '';
-        foreach ($commands as $name => $handler) {
-            $text .= sprintf('/%s - %s'.PHP_EOL, $name, $handler->getDescription());
-        }
+
 
         $this->replyWithMessage(compact('text'));
     }
