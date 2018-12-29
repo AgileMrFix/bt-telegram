@@ -19,7 +19,7 @@ Route::post('/'.config('telegram.bot_token').'/webhook', function () {
 
     $updates = \Telegram\Bot\Laravel\Facades\Telegram::getWebhookUpdates();
 
-    return $updates;
+    return 'ok';
 });
 
 Route::get('set', function (){
