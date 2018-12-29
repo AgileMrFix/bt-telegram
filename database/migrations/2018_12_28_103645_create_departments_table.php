@@ -17,7 +17,6 @@ class CreateDepartmentsTable extends Migration
             $table->increments('id');
             $table->integer('parent_id');
             $table->string('name');
-
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateDepartmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departaments');
+        Schema::dropIfExists('departments');
     }
 }
