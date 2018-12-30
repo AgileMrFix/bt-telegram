@@ -29,7 +29,7 @@ class WebhookController extends Controller
     {
         $message = $update->getMessage();
 
-        if ($message !== null && $message->has('text') && $message[0] === '/') {
+        if ($message !== null && $message->has('text') && $message['text'][0] === '/') {
             return true;
 
         }
