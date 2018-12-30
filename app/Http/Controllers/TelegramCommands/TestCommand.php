@@ -18,10 +18,7 @@ class TestCommand extends Command
      */
     public function handle($arguments)
     {
-        $this->replyWithMessage(['text'=>'hyjnja']);
-
-        $text = '';
-
+        $text = 'test message';
 
         $this->replyWithMessage(compact('text'));
     }

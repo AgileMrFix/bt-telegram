@@ -17,7 +17,7 @@ class HelpCommand extends Command
     /**
      * @var string Command Description
      */
-    protected $description = 'Help command, Get a list of commands';
+    protected $description = trans('telegram.commands.help.description');
 
     /**
      * {@inheritdoc}
