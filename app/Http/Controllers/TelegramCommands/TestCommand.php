@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Console\Commands\Telegram;
+namespace App\Http\Controllers\TelegramCommands;
 
-use Illuminate\Console\Command;
+use Telegram\Bot\Commands\Command;
 
-class Test extends Command
+class TestCommand extends Command
 {
     protected $name = 'test';
 
