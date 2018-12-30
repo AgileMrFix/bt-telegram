@@ -18,7 +18,7 @@ class TestCommand extends Command
      */
     public function handle($arguments)
     {
-        $text = 'test message';
+        $text = 'test message '.trans('telegram.commands.test.test');
 
         $this->replyWithMessage(compact('text'));
     }
