@@ -15,19 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/' . config('telegram.bot_token') . '/webhook', function () {
-
-    $updates = Telegram::commandsHandler(true);
-    $id = $updates['message']['from']['id'];
-    $response = Telegram::sendMessage(['text' => 'asd', 'chat_id' => $id]);
-
-    return 'ok';
-
-    return 'ok';
-});
+Route::post('/' . config('telegram.bot_token') . '/webhook', 'WebhookController@processWebhook');
 
 Route::get('set', function () {
-//    $response = \Telegram\Bot\Laravel\Facades\Telegram::setWebhook(['url' => 'https://telegram.tbvat.com.ua/'.env('TELEGRAM_BOT_TOKEN').'/webhook']);
     $response = \Telegram\Bot\Laravel\Facades\Telegram::setWebhook([
         'url' => 'https://telegram.tbvat.com.ua/' . config('telegram.bot_token') . '/webhook',
         'certificate' => 'cert.pem'
@@ -36,7 +26,7 @@ Route::get('set', function () {
 });
 
 Route::get('rem', function () {
-    $response = \Telegram\Bot\Laravel\Facades\Telegram::removeWebhook();
+    $response = Telegram::removeWebhook();
     return $response;
 });
 
