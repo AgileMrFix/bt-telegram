@@ -11,13 +11,13 @@ class WebhookController extends Controller
         $update = Telegram::commandsHandler(true);
 
         if ($this->messageIsCommand($update)) {
-            return true;
+            return 'ok';
         }
 
         $id = $update['message']['from']['id'];
         $this->sendMessage($id);
 
-        return true;
+        return 'ok';
 
     }
 
@@ -31,6 +31,7 @@ class WebhookController extends Controller
 
         if ($message !== null && $message->has('text') && $message[0] === '/') {
             return true;
+
         }
 
         return false;
