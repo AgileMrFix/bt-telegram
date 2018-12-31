@@ -19,8 +19,15 @@ class WebhookController extends Controller
     public function processWebhook()
     {
         $this->update = Telegram::commandsHandler(true);
-        $this->telegramUser = $this->getTelegramUser();
-        $this->saveMessageHistory();
+        try {
+            $this->telegramUser = $this->getTelegramUser();
+            $this->saveMessageHistory();
+
+        } catch (\Exception $exception) {
+            if (is_null($this->update['message']))
+                $message = $this->update['message'];
+            $this->sendMessage('щось пішло не так', $message['from']['id']);
+        }
 
 //        $this->processMessage();
         return 'ok';
@@ -42,9 +49,9 @@ class WebhookController extends Controller
      */
     protected function getTelegramUser()
     {
-        if ($this->update->has('message'))
+        if (is_null($this->update['message']))
             $from = $this->update['message']['from'];
-        if ($this->update->has('edited_message'))
+        if (is_null($this->update['edited_message']))
             $from = $this->update['edited_message']['from'];
 
         $telegramUser = TelegramUser::find($from['id']);
