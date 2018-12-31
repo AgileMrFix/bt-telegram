@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Telegram\TelegramUser;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
