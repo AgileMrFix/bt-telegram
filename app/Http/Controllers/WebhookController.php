@@ -36,7 +36,7 @@ class WebhookController extends Controller
         $telegramUser = TelegramUser::find($from->id);
 
         if (is_null($telegramUser)) {
-            $telegramUser = TelegramUser::create($from);
+            $telegramUser = TelegramUser::create($from->toArray());
         }
 
         return $telegramUser;
