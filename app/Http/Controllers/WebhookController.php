@@ -23,6 +23,7 @@ class WebhookController extends Controller
         $this->saveMessageHistory();
 
         $this->processMessage();
+        Log::info('good');
         return 'ok';
 
     }
