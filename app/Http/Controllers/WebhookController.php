@@ -76,6 +76,7 @@ class WebhookController extends Controller
                 if ($this->messageIsCommand($message)) {
                     return;
                 }
+                $this->sendMessage('ok');
                 break;
             case $message->has('audio'):
                 $partMessage = trans('telegram.message_types_description.audio');
