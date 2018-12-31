@@ -18,8 +18,8 @@ class WebhookController extends Controller
     public function processWebhook()
     {
         $this->update = Telegram::commandsHandler(true);
-        $this->telegramUser = $this->getTelegramUser();
 
+        $this->telegramUser = $this->getTelegramUser();
         $this->processMessage();
 
         return 'ok';
@@ -34,9 +34,9 @@ class WebhookController extends Controller
 
         $from = $this->update->from;
         $telegramUser = TelegramUser::find($from->id);
-
+Log::debug($from->toArray());
         if (is_null($telegramUser)) {
-            $telegramUser = TelegramUser::create($from->toArray());
+            $telegramUser = TelegramUser::create();
         }
 
         return $telegramUser;
