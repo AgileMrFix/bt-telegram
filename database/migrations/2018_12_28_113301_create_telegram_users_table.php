@@ -14,10 +14,11 @@ class CreateTelegramUsersTable extends Migration
     public function up()
     {
         Schema::create('telegram_users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('last_name');
-            $table->string('first_name');
-            $table->string('nick_name');
+            $table->integer('id')->unique()->index();
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->boolean('is_bot');
+            $table->string('username');
             $table->timestamps();
         });
     }

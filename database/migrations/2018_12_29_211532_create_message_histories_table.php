@@ -15,6 +15,11 @@ class CreateMessageHistoriesTable extends Migration
     {
         Schema::create('message_histories', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('message_id')->index();
+            $table->integer('telegram_user_id')->index();
+            $table->string('type');
+            $table->boolean('edited')->default(false);
+            $table->text('text')->nullable();
             $table->timestamps();
         });
     }

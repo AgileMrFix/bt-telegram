@@ -2,6 +2,7 @@
 
 namespace App\Models\Telegram;
 
+use App\MessageHistory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,5 +15,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TelegramUser extends Model
 {
-    //
+    protected $fillable = [
+        'id',
+        'first_name',
+        'last_name',
+        'username'
+    ];
+
+    public function message_histories()
+    {
+        return $this->hasMany(MessageHistory::class);
+    }
 }
