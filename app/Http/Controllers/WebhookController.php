@@ -49,11 +49,12 @@ class WebhookController extends Controller
         if ($this->update->has('edited_message'))
             $from = $this->update['edited_message']['from'];
 
-        Log::debug('test');
+
 
         $telegramUser = TelegramUser::find($from['id']);
         if (is_null($telegramUser)) {
-            $telegramUser = TelegramUser::create((array)$from);
+            Log::debug((array) $from);
+            $telegramUser = TelegramUser::create((array) $from);
         }
 
         return $telegramUser;
