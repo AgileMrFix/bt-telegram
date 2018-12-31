@@ -19,8 +19,8 @@ class WebhookController extends Controller
     public function processWebhook()
     {
         $this->update = Telegram::commandsHandler(true);
-return 'ok';
         $this->telegramUser = $this->getTelegramUser();
+return 'ok';
         $this->saveMessageHistory();
 //        $this->processMessage();
 
