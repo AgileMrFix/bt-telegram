@@ -22,7 +22,7 @@ class WebhookController extends Controller
 
         $this->telegramUser = $this->getTelegramUser();
         $this->saveMessageHistory();
-        $this->processMessage();
+//        $this->processMessage();
 
         return 'ok';
 
