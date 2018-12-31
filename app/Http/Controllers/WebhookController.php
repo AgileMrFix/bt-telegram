@@ -44,14 +44,15 @@ class WebhookController extends Controller
     protected function getTelegramUser()
     {
         if ($this->update->has('message'))
-            $from = $this->update['message']->from;
+            $from = $this->update['message']['from'];
 
         if ($this->update->has('edited_message'))
-            $from = $this->update['edited_message']->from;
+            $from = $this->update['edited_message']['from'];
 
 
         $telegramUser = TelegramUser::find($from['id']);
         Log::debug($from);
+        Log::debug((array) $from);
         if (is_null($telegramUser)) {
             $data = [
                 'id' => $from->id,
