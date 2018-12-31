@@ -74,7 +74,7 @@ class WebhookController extends Controller
 
         $data['message_id'] = $message['message_id'];
         $data['type'] = $this->update->isMessageType();
-        $data['text'] = is_null($message['text']) ?: $message['text'];
+        $data['text'] = !$message->has('text') ?: $message['text'];
 
         $this->telegramUser->message_histories()->create($data);
     }
