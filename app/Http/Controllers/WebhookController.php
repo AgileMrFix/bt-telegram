@@ -20,20 +20,19 @@ class WebhookController extends Controller
     {
         $this->update = Telegram::commandsHandler(true);
         $this->telegramUser = $this->getTelegramUser();
-return 'ok';
         $this->saveMessageHistory();
-//        $this->processMessage();
 
+//        $this->processMessage();
         return 'ok';
 
     }
 
-    public function testUpdate(){
+    public function testUpdate()
+    {
 
-        $json = file_get_contents('https://api.telegram.org/bot712285308:AAET4okFG1d1CTu6vENUZJ7ybNUMqECep8M/getUpdates');
-
-        $this->update = json_decode($json)->result[0];
+        $this->update = Telegram::getUpdates()[0];
         $this->telegramUser = $this->getTelegramUser();
+        $this->saveMessageHistory();
 
 
     }
@@ -43,11 +42,14 @@ return 'ok';
      */
     protected function getTelegramUser()
     {
+        if ($this->update->has('message'))
+            $from = $this->update['message']['from'];
+        if ($this->update->has('edited_message'))
+            $from = $this->update['edited_message']['from'];
 
-        $from = $this->update->message->from;
-        $telegramUser = TelegramUser::find($from->id);
+        $telegramUser = TelegramUser::find($from['id']);
         if (is_null($telegramUser)) {
-            $telegramUser = TelegramUser::create((array) $from);
+            $telegramUser = TelegramUser::create((array)$from);
         }
 
         return $telegramUser;
@@ -56,21 +58,20 @@ return 'ok';
     protected function saveMessageHistory()
     {
         $data = [];
-
         if ($this->update->has('edited_message')) {
             $data['edited'] = true;
-            $message = $this->update->edited_message;
+            $message = $this->update['edited_message'];
         } elseif ($this->update->has('message')) {
             $data['edited'] = false;
-            $message = $this->update->message;
+            $message = $this->update['message'];
         } else {
             return;
         }
 
 
-        $data['message_id'] = $message->message_id;
+        $data['message_id'] = $message['message_id'];
         $data['type'] = $this->update->isMessageType();
-        $data['text'] = !$message->has('text') ?: $message->text;
+        $data['text'] = is_null($message['text']) ?: $message['text'];
 
         $this->telegramUser->message_histories()->create($data);
     }
