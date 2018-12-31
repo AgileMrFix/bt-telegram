@@ -51,17 +51,10 @@ class WebhookController extends Controller
 
 
         $telegramUser = TelegramUser::find($from['id']);
-        log::debug( json_decode(json_encode($from), true));
-        if (is_null($telegramUser)) {
-            $data = [
-                'id' => $from['id'],
-                'first_name' => $from['first_name'],
-                'last_name' => $from['last_name'],
-                'username' => $from['username'],
-                'is_bot' => $from['is_bot']
-            ];
-            $telegramUser = TelegramUser::create($data);
-        }
+
+        if (is_null($telegramUser))
+            $telegramUser = TelegramUser::create($this->obj2arr($from));
+
 
         return $telegramUser;
     }
@@ -159,5 +152,13 @@ class WebhookController extends Controller
     {
         $chat_id = is_null($chat_id) ? $this->telegramUser->id : $chat_id;
         return Telegram::sendMessage(compact('chat_id', 'text'));
+    }
+
+    /**
+     * @return array
+    */
+    protected function obj2arr($obj)
+    {
+        return json_decode(json_encode($obj), true);
     }
 }
