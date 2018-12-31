@@ -81,11 +81,13 @@ class WebhookController extends Controller
 
     protected function processMessage()
     {
+
         $message = $this->update->getMessage();
         if ($message === null) {
             return;
         }
 
+        $partMessage = null;
         switch (true) {
             case $message->has('text') :
                 if ($this->messageIsCommand($message)) {
@@ -126,7 +128,7 @@ class WebhookController extends Controller
 
     }
 
-    protected function sendErrorMessage($partMessage = null)
+    protected function sendErrorMessage($partMessage)
     {
         if (is_null($partMessage)) {
             return;
