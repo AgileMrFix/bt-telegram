@@ -51,6 +51,7 @@ class WebhookController extends Controller
 
 
         $telegramUser = TelegramUser::find($from['id']);
+        log::debug( json_decode(json_encode($from), true));
         if (is_null($telegramUser)) {
             $data = [
                 'id' => $from['id'],
