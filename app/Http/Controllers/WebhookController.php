@@ -20,8 +20,8 @@ class WebhookController extends Controller
 
         Log::debug('test');
         $this->update = Telegram::commandsHandler(true);
-            $this->telegramUser = $this->getTelegramUser();
-            $this->saveMessageHistory();
+        $this->telegramUser = $this->getTelegramUser();
+        $this->saveMessageHistory();
 
 //        $this->processMessage();
         return 'ok';
@@ -50,11 +50,16 @@ class WebhookController extends Controller
             $from = $this->update['edited_message']['from'];
 
 
-
         $telegramUser = TelegramUser::find($from['id']);
         if (is_null($telegramUser)) {
-            $data = (array) $from;
-            Log::debug($data[0]);
+            $data = [
+                'id' => $from->id,
+                'first_name' => $from->first_name,
+                'last_name' => $from->last_name,
+                'username' => $from->username,
+                'is_bot' => $from->is_bot
+            ];
+            Log::debug($data);
             $telegramUser = TelegramUser::create($data);
         }
 
