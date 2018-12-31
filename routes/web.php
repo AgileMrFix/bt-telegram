@@ -35,3 +35,5 @@ Route::get('send', function () {
     return $response;
 });
 
+Route::get('test', 'WebhookController@testUpdate')->name('test.update');
+

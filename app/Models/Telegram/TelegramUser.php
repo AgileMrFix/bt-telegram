@@ -19,7 +19,8 @@ class TelegramUser extends Model
         'id',
         'first_name',
         'last_name',
-        'username'
+        'username',
+        'is_bot'
     ];
 
     public function message_histories()

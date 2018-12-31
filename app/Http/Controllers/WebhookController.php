@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Telegram\TelegramUser;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
@@ -20,9 +21,20 @@ class WebhookController extends Controller
         $this->update = Telegram::commandsHandler(true);
 
         $this->telegramUser = $this->getTelegramUser();
+        $this->saveMessageHistory();
         $this->processMessage();
 
         return 'ok';
+
+    }
+
+    public function testUpdate(){
+
+        $json = file_get_contents('https://api.telegram.org/bot712285308:AAET4okFG1d1CTu6vENUZJ7ybNUMqECep8M/getUpdates');
+
+        $this->update = json_decode($json)->result[0];
+        $this->telegramUser = $this->getTelegramUser();
+
 
     }
 
@@ -32,11 +44,10 @@ class WebhookController extends Controller
     protected function getTelegramUser()
     {
 
-        $from = $this->update->from;
+        $from = $this->update->message->from;
         $telegramUser = TelegramUser::find($from->id);
-Log::debug($from->toArray());
         if (is_null($telegramUser)) {
-            $telegramUser = TelegramUser::create();
+            $telegramUser = TelegramUser::create((array) $from);
         }
 
         return $telegramUser;
