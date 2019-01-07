@@ -13,7 +13,6 @@ use App\Models\Telegram\Department;
 use App\Models\Telegram\SecurityCode;
 use App\Models\Telegram\TelegramUser;
 use App\Step;
-use Telegram\Bot\Keyboard\Keyboard;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class TextProcessing
@@ -168,7 +167,7 @@ class TextProcessing
     protected function getKeyboard($data=null)
     {
         if (is_null($data))
-            return Keyboard::remove();
+            return json_encode(['remove_keyboard'=>true]);
 
         return Telegram::replyKeyboardMarkup($data);
     }

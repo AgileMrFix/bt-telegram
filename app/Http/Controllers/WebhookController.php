@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Telegram\TelegramUser;
 use Illuminate\Support\Facades\Log;
 use Telegram\Bot\Laravel\Facades\Telegram;
-use Telegram\Bot\Methods\Update;
-use Telegram\Bot\Objects\Message;
 
 class WebhookController extends Controller
 {
@@ -26,10 +24,7 @@ class WebhookController extends Controller
     public function processWebhook()
     {
 
-        $this->update = Telegram::bot()->getWebhookUpdate()->getMessage();
-        Log::info($this->update);
-        return 'ok';
-
+        $this->update = Telegram::commandsHandler(true);
         $this->telegramUser = $this->getTelegramUser();
         $this->saveMessageHistory();
 
@@ -83,7 +78,7 @@ class WebhookController extends Controller
         }
 
         $data['message_id'] = $message['message_id'];
-        $data['type'] = '';
+        $data['type'] = Telegram::detectMessageType($this->update);
         $data['text'] = !$message->has('text') ?: $message['text'];
 
 

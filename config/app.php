@@ -177,7 +177,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         Telegram\Bot\Laravel\TelegramServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Telegram\Bot\Laravel\TelegramServiceProvider::class,
 
 
 
