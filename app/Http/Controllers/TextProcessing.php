@@ -98,11 +98,12 @@ class TextProcessing
     {
         switch ($action = $this->step->action) {
             case 0:
+
                 $actionData = Step::getDataForEmployee($action);
                 $data = $this->unitStepData([$actionData['name'] => $this->text]);
                 $this->setStep($this->step->type, $data, $action + 1);
 
-                $nextActionData = Step::getDataForEmployee($action++);
+                $nextActionData = Step::getDataForEmployee($action + 1);
                 $reply_markup = $this->getMainKeyboard($nextActionData['keyboard']);
                 $this->sendMessage($nextActionData['message'], $reply_markup);
 
@@ -110,9 +111,9 @@ class TextProcessing
             case 1:
                 $actionData = Step::getDataForEmployee($action);
                 $data = $this->unitStepData([$actionData['name'] => $this->text]);
-                $this->setStep($this->step->type, $data, $action++);
+                $this->setStep($this->step->type, $data, $action + 1);
 
-                $nextActionData = Step::getDataForEmployee($action++);
+                $nextActionData = Step::getDataForEmployee($action + 1);
                 $reply_markup = $this->getKeyboard($nextActionData['keyboard']);
                 $this->sendMessage($nextActionData['message'], $reply_markup);
                 break;
