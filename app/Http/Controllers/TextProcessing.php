@@ -151,7 +151,7 @@ class TextProcessing
     protected function unitStepData($newPart)
     {
         $data = json_decode($this->step->data, true);
-        $date = array_merge($data, $newPart);
+        $data = array_merge($data, $newPart);
         return json_encode($data);
     }
 
