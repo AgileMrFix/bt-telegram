@@ -2,11 +2,17 @@
 
 namespace App;
 
+use App\Models\Telegram\Department;
 use App\Models\Telegram\TelegramUser;
 use Illuminate\Database\Eloquent\Model;
 
 class Step extends Model
 {
+    const TYPE_WAIT = 'wait';
+
+    const TYPE_EMPLOYEE = 'employee';
+    const TYPE_DEPARTMENT = 'department';
+
     protected $guarded = [
         'id'
     ];
@@ -15,4 +21,31 @@ class Step extends Model
     {
         return $this->belongsTo(TelegramUser::class);
     }
+
+
+
+    public static function getDataForEmployee($action)
+    {
+        $data = [
+            0 => [
+                'name' => 'first_name',
+                'message' => "Ваше ім'я:",
+                'keyboard' => [],
+            ],
+            1 => [
+                'name' => 'last_name',
+                'message' => "Ваше прізвище:",
+                'keyboard' => [],
+            ],
+            2 => [
+                'name' => 'department',
+                'message' => "Оберіть відділ:",
+                'keyboard' => Department::all()->pluck('name'),
+            ]
+        ];
+
+        return $data[$action];
+    }
+
+
 }

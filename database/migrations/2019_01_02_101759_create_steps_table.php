@@ -16,8 +16,9 @@ class CreateStepsTable extends Migration
         Schema::create('steps', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('telegram_user_id')->index();
-            $table->string('action')->nullable();
+            $table->string('action')->default(0);
             $table->string('type')->nullable();
+            $table->text('data')->default('"[]"');
             $table->timestamps();
         });
     }

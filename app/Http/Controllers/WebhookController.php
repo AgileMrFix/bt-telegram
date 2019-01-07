@@ -17,9 +17,9 @@ class WebhookController extends Controller
     protected $message;
 
     /**
-     * @var $mainFunctionality MainFunctionality
+     * @var $textProcessing TextProcessing
      */
-    protected $mainFunctionality;
+    protected $textProcessing;
 
     public function processWebhook()
     {
@@ -28,7 +28,7 @@ class WebhookController extends Controller
         $this->telegramUser = $this->getTelegramUser();
         $this->saveMessageHistory();
 
-        $this->mainFunctionality = new MainFunctionality($this->update, $this->message, $this->telegramUser);
+        $this->textProcessing = new TextProcessing($this->update, $this->message, $this->telegramUser);
 
         $this->processMessage();
         Log::info('good');
@@ -100,8 +100,8 @@ class WebhookController extends Controller
                     $this->commandProcessing($this->message['text']);
                     return;
                 }
-                $this->mainFunctionality->processText($this->message['text']);
-                $this->mainFunctionality->sendMessage('ok');
+                $this->textProcessing->processText($this->message['text']);
+                $this->textProcessing->sendMessage('ok');
                 break;
             case $this->message->has('audio'):
                 $partMessage = trans('telegram.message_types_description.audio');
@@ -140,7 +140,7 @@ class WebhookController extends Controller
         if (is_null($partMessage)) {
             return;
         }
-        $this->mainFunctionality->sendMessage(trans('telegram.errors.process', ['message_type' => $partMessage]));
+        $this->textProcessing->sendMessage(trans('telegram.errors.process', ['message_type' => $partMessage]));
     }
 
     /**
@@ -160,7 +160,7 @@ class WebhookController extends Controller
         switch ($command) {
             case '/start':
                 if (!$this->telegramUser->allowed)
-                    $this->mainFunctionality->sendMessage(trans('telegram.check_security_code.need'));
+                    $this->textProcessing->sendMessage(trans('telegram.check_security_code.need'));
                 break;
         }
         return;
