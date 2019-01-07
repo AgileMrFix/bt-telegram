@@ -97,10 +97,10 @@ class WebhookController extends Controller
         switch (true) {
             case $this->message->has('text') :
                 if ($this->messageIsCommand()) {
-                    $this->commandProcessing($this->message->text);
+                    $this->commandProcessing($this->message['text']);
                     return;
                 }
-                $this->mainFunctionality->processText($this->message->text);
+                $this->mainFunctionality->processText($this->message['text']);
                 $this->mainFunctionality->sendMessage('ok');
                 break;
             case $this->message->has('audio'):
