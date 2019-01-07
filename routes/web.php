@@ -36,7 +36,6 @@ Route::get('send', function () {
         'resize_keyboard' => true,
         'one_time_keyboard' => true
     ]);
-    $reply_markup = Telegram::forceReply();
     $response = Telegram::sendMessage(['text' => 'asd', 'chat_id' => 357906340, 'reply_markup'=>$reply_markup]);
     return $response;
 });
