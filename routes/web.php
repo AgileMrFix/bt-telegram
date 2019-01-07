@@ -31,7 +31,8 @@ Route::get('rem', function () {
 });
 
 Route::get('send', function () {
-    $response = Telegram::sendMessage(['text' => 'asd', 'chat_id' => 357906340]);
+    $reply_markup = \Telegram\Bot\Laravel\Facades\Telegram::replyKeyboardMarkup(['1']);
+    $response = Telegram::sendMessage(['text' => 'asd', 'chat_id' => 357906340, 'reply_markup'=>$reply_markup]);
     return $response;
 });
 
