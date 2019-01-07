@@ -13,6 +13,7 @@ use App\Models\Telegram\Department;
 use App\Models\Telegram\SecurityCode;
 use App\Models\Telegram\TelegramUser;
 use App\Step;
+use Telegram\Bot\Keyboard\Keyboard;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class TextProcessing
@@ -103,7 +104,7 @@ class TextProcessing
                 $this->setStep($this->step->type, $data, $action++);
 
                 $nextActionData = Step::getDataForEmployee($action++);
-                $reply_markup = Telegram::replyKeyboardMarkup($nextActionData['keyboard']);
+                $reply_markup = $this->getMainKeyboard($nextActionData['keyboard']);
                 $this->sendMessage($nextActionData['message'], $reply_markup);
 
                 break;
@@ -113,7 +114,7 @@ class TextProcessing
                 $this->setStep($this->step->type, $data, $action++);
 
                 $nextActionData = Step::getDataForEmployee($action++);
-                $reply_markup = Telegram::replyKeyboardMarkup($nextActionData['keyboard']);
+                $reply_markup = $this->getKeyboard($nextActionData['keyboard']);
                 $this->sendMessage($nextActionData['message'], $reply_markup);
                 break;
             case 2:
@@ -124,7 +125,7 @@ class TextProcessing
                     $this->setStep(Step::TYPE_WAIT);
                     $employee = $this->telegramUser->employee()->create($data);
 
-                    $reply_markup = Telegram::replyKeyboardHide($this->getMainKeyboard());
+                    $reply_markup = $this->getMainKeyboard();
                     $this->sendMessage(
                         trans(
                             'telegram.after_registration.success',
@@ -164,8 +165,19 @@ class TextProcessing
         return true;
     }
 
+    protected function getKeyboard($data=null)
+    {
+        if (is_null($data))
+            return Keyboard::remove();
+
+        return Telegram::replyKeyboardMarkup($data);
+    }
+
     protected function getMainKeyboard()
     {
-        return [];
+        $data = null;
+        return $this->getKeyboard($data);
     }
+
+
 }

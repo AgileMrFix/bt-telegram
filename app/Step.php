@@ -30,12 +30,12 @@ class Step extends Model
             0 => [
                 'name' => 'first_name',
                 'message' => "Ваше ім'я:",
-                'keyboard' => [[]],
+                'keyboard' => null,
             ],
             1 => [
                 'name' => 'last_name',
                 'message' => "Ваше прізвище:",
-                'keyboard' => [],
+                'keyboard' => null,
             ],
             2 => [
                 'name' => 'department',
