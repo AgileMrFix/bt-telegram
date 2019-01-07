@@ -122,8 +122,8 @@ class TextProcessing
                 $data = $this->unitStepData([$actionData['name'] => $this->text]);
 
                 if ($this->validateText($this->text, Department::all()->pluck('name')->toArray())) {
+                    $employee = $this->telegramUser->employee()->create(json_decode($data,true));
                     $this->setStep(Step::TYPE_WAIT);
-                    $employee = $this->telegramUser->employee()->create($data);
 
                     $reply_markup = $this->getMainKeyboard();
                     $this->sendMessage(
