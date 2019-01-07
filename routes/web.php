@@ -31,7 +31,11 @@ Route::get('rem', function () {
 });
 
 Route::get('send', function () {
-    $reply_markup = \Telegram\Bot\Laravel\Facades\Telegram::replyKeyboardMarkup(['1']);
+    $reply_markup = Telegram::replyKeyboardMarkup([
+        'keyboard' => ['1'],
+        'resize_keyboard' => true,
+        'one_time_keyboard' => true
+    ]);
     $response = Telegram::sendMessage(['text' => 'asd', 'chat_id' => 357906340, 'reply_markup'=>$reply_markup]);
     return $response;
 });
