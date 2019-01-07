@@ -17,6 +17,7 @@ class CreateDepartmentsTable extends Migration
             $table->increments('id');
             $table->integer('parent_id');
             $table->string('name');
+            $table->integer('employee_id');
             $table->timestamps();
         });
     }

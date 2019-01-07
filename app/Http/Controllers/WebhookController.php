@@ -14,6 +14,12 @@ class WebhookController extends Controller
      * @var $telegramUser TelegramUser
      */
     protected $telegramUser;
+    protected $message;
+
+    /**
+     * @var $mainFunctionality MainFunctionality
+     */
+    protected $mainFunctionality;
 
     public function processWebhook()
     {
@@ -21,6 +27,8 @@ class WebhookController extends Controller
         $this->update = Telegram::commandsHandler(true);
         $this->telegramUser = $this->getTelegramUser();
         $this->saveMessageHistory();
+
+        $this->mainFunctionality = new MainFunctionality($this->update, $this->message, $this->telegramUser);
 
         $this->processMessage();
         Log::info('good');
@@ -30,12 +38,9 @@ class WebhookController extends Controller
 
     public function testUpdate()
     {
-
         $this->update = Telegram::getUpdates()[0];
         $this->telegramUser = $this->getTelegramUser();
         $this->saveMessageHistory();
-
-
     }
 
     /**
@@ -72,10 +77,10 @@ class WebhookController extends Controller
             return;
         }
 
-
         $data['message_id'] = $message['message_id'];
-        $data['type'] = $this->update->isMessageType();
+        $data['type'] = Telegram::detectMessageType($this->update);
         $data['text'] = !$message->has('text') ?: $message['text'];
+
 
         $this->telegramUser->message_histories()->create($data);
     }
@@ -83,41 +88,43 @@ class WebhookController extends Controller
     protected function processMessage()
     {
 
-        $message = $this->update->getMessage();
-        if ($message === null) {
+        $this->message = $this->update->getMessage();
+        if ($this->message === null) {
             return;
         }
 
         $partMessage = null;
         switch (true) {
-            case $message->has('text') :
-                if ($this->messageIsCommand($message)) {
+            case $this->message->has('text') :
+                if ($this->messageIsCommand()) {
+                    $this->commandProcessing($this->message->text);
                     return;
                 }
-                $this->sendMessage('ok');
+                $this->mainFunctionality->processText($this->message->text);
+                $this->mainFunctionality->sendMessage('ok');
                 break;
-            case $message->has('audio'):
+            case $this->message->has('audio'):
                 $partMessage = trans('telegram.message_types_description.audio');
                 break;
-            case $message->has('document'):
+            case $this->message->has('document'):
                 $partMessage = trans('telegram.message_types_description.document');
                 break;
-            case $message->has('photo'):
+            case $this->message->has('photo'):
                 $partMessage = trans('telegram.message_types_description.photo');
                 break;
-            case $message->has('sticker'):
+            case $this->message->has('sticker'):
                 $partMessage = trans('telegram.message_types_description.sticker');
                 break;
-            case $message->has('video'):
+            case $this->message->has('video'):
                 $partMessage = trans('telegram.message_types_description.video');
                 break;
-            case $message->has('voice'):
+            case $this->message->has('voice'):
                 $partMessage = trans('telegram.message_types_description.voice');
                 break;
-            case $message->has('contact'):
+            case $this->message->has('contact'):
                 $partMessage = trans('telegram.message_types_description.contact');
                 break;
-            case $message->has('location'):
+            case $this->message->has('location'):
                 $partMessage = trans('telegram.message_types_description.location');
                 break;
             default:
@@ -126,7 +133,6 @@ class WebhookController extends Controller
 
         $this->sendErrorMessage($partMessage);
 
-
     }
 
     protected function sendErrorMessage($partMessage)
@@ -134,33 +140,39 @@ class WebhookController extends Controller
         if (is_null($partMessage)) {
             return;
         }
-
-        $this->sendMessage(trans('telegram.errors.process', ['message_type' => $partMessage]));
+        $this->mainFunctionality->sendMessage(trans('telegram.errors.process', ['message_type' => $partMessage]));
     }
 
     /**
      * @param $update
      * @return bool
      */
-    protected function messageIsCommand($message)
+    protected function messageIsCommand()
     {
-        if ($message['text'][0] === '/') {
+        if ($this->message['text'][0] === '/') {
             return true;
         }
         return false;
     }
 
-    protected function sendMessage($text, $chat_id = null)
+    protected function commandProcessing($command)
     {
-        $chat_id = is_null($chat_id) ? $this->telegramUser->id : $chat_id;
-        return Telegram::sendMessage(compact('chat_id', 'text'));
+        switch ($command) {
+            case '/start':
+                if (!$this->telegramUser->allowed)
+                    $this->mainFunctionality->sendMessage(trans('telegram.check_security_code.need'));
+                break;
+        }
+        return;
     }
 
     /**
      * @return array
-    */
+     */
     protected function obj2arr($obj)
     {
         return json_decode(json_encode($obj), true);
     }
+
+
 }

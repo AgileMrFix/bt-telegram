@@ -4,22 +4,26 @@ namespace App\Http\Controllers\TelegramCommands;
 
 use Telegram\Bot\Commands\Command;
 
-class TestCommand extends Command
+/**
+ * Class HelpCommand.
+ */
+class StartCommand extends Command
 {
-    protected $name = 'test';
+    /**
+     * @var string Command Name
+     */
+    protected $name = 'start';
 
     /**
      * @var string Command Description
      */
-    protected $description = 'test';
+    protected $description = 'Start bot';
 
     /**
      * {@inheritdoc}
      */
     public function handle($arguments)
     {
-        $text = 'test message '.trans('telegram.commands.test.test');
 
-        $this->replyWithMessage(compact('text'));
     }
 }

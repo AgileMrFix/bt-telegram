@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSecurityCodesTable extends Migration
+class CreateEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSecurityCodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('security_codes', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code');
-            $table->integer('amount');
-            $table->dateTime('ended_at');
+            $table->string('name');
+            $table->integer('telegram_user_id');
+            $table->boolean('is_chief')->default(false);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateSecurityCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('security_codes');
+        Schema::dropIfExists('employees');
     }
 }

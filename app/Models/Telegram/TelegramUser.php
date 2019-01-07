@@ -2,7 +2,9 @@
 
 namespace App\Models\Telegram;
 
+use App\Employee;
 use App\MessageHistory;
+use App\Step;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -26,5 +28,15 @@ class TelegramUser extends Model
     public function message_histories()
     {
         return $this->hasMany(MessageHistory::class);
+    }
+
+    public function step()
+    {
+        return $this->hasOne(Step::class);
+    }
+
+    public function employee()
+    {
+        return $this->hasOne(Employee::class);
     }
 }
