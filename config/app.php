@@ -177,6 +177,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Telegram\Bot\Laravel\TelegramServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Telegram\Bot\Laravel\TelegramServiceProvider::class,
+
 
 
 
@@ -229,7 +231,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Telegram'  => Telegram\Bot\Laravel\Facades\Telegram::class,
-        'Message' => \Telegram\Bot\Objects\Message::class,
 
 
 
