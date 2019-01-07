@@ -119,10 +119,10 @@ class TextProcessing
                 break;
             case 2:
                 $actionData = Step::getDataForEmployee($action);
-                $data = $this->unitStepData([$actionData['name'] => $this->text]);
 
-                if ($this->validateText($this->text, Department::all()->pluck('name')->toArray())) {
-                    $employee = $this->telegramUser->employee()->create(json_decode($data,true));
+                if (($department_id = $this->validateText()) !== false) {
+                    $data = $this->unitStepData([$actionData['name'] => $department_id]);
+                    $employee = $this->telegramUser->employee()->create(json_decode($data, true));
                     $this->setStep(Step::TYPE_WAIT);
 
                     $reply_markup = $this->getMainKeyboard();
@@ -155,14 +155,15 @@ class TextProcessing
         return json_encode($data);
     }
 
-    protected function validateText($text, $rules)
+    protected function validateDepartment()
     {
-        $search = array_search($text, $rules);
+        $rules = Department::all()->pluck('name', 'id')->toArray();
+        $search = array_search($this->text, $rules);
 
         if (is_null($search))
             return false;
 
-        return true;
+        return $search;
     }
 
     protected function getKeyboard($data = null)
