@@ -121,7 +121,7 @@ class TextProcessing
                 $actionData = Step::getDataForEmployee($action);
                 $data = $this->unitStepData([$actionData['name'] => $this->text]);
 
-                if ($this->validateText($this->text, Department::all()->pluck('name'))) {
+                if ($this->validateText($this->text, Department::all()->pluck('name')->toArray())) {
                     $this->setStep(Step::TYPE_WAIT);
                     $employee = $this->telegramUser->employee()->create($data);
 
