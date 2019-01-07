@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.19 on 2018-12-29 11:57:04.
+ * Generated for Laravel 5.7.19 on 2019-01-07 22:37:57.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -3669,25 +3669,12 @@ namespace Illuminate\Support\Facades {
         /**
          * Get a schema builder instance for the connection.
          *
-         * @return \Illuminate\Database\Schema\MySqlBuilder 
+         * @return \Illuminate\Database\Schema\PostgresBuilder 
          * @static 
          */ 
         public static function getSchemaBuilder()
         {
-            return \Illuminate\Database\MySqlConnection::getSchemaBuilder();
-        }
-        
-        /**
-         * Bind values to their parameters in the given statement.
-         *
-         * @param \PDOStatement $statement
-         * @param array $bindings
-         * @return void 
-         * @static 
-         */ 
-        public static function bindValues($statement, $bindings)
-        {
-            \Illuminate\Database\MySqlConnection::bindValues($statement, $bindings);
+            return \Illuminate\Database\PostgresConnection::getSchemaBuilder();
         }
         
         /**
@@ -3699,7 +3686,7 @@ namespace Illuminate\Support\Facades {
         public static function useDefaultQueryGrammar()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::useDefaultQueryGrammar();
+            \Illuminate\Database\PostgresConnection::useDefaultQueryGrammar();
         }
         
         /**
@@ -3711,7 +3698,7 @@ namespace Illuminate\Support\Facades {
         public static function useDefaultSchemaGrammar()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::useDefaultSchemaGrammar();
+            \Illuminate\Database\PostgresConnection::useDefaultSchemaGrammar();
         }
         
         /**
@@ -3723,7 +3710,7 @@ namespace Illuminate\Support\Facades {
         public static function useDefaultPostProcessor()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::useDefaultPostProcessor();
+            \Illuminate\Database\PostgresConnection::useDefaultPostProcessor();
         }
         
         /**
@@ -3736,7 +3723,7 @@ namespace Illuminate\Support\Facades {
         public static function table($table)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::table($table);
+            return \Illuminate\Database\PostgresConnection::table($table);
         }
         
         /**
@@ -3748,7 +3735,7 @@ namespace Illuminate\Support\Facades {
         public static function query()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::query();
+            return \Illuminate\Database\PostgresConnection::query();
         }
         
         /**
@@ -3763,7 +3750,7 @@ namespace Illuminate\Support\Facades {
         public static function selectOne($query, $bindings = array(), $useReadPdo = true)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::selectOne($query, $bindings, $useReadPdo);
+            return \Illuminate\Database\PostgresConnection::selectOne($query, $bindings, $useReadPdo);
         }
         
         /**
@@ -3777,7 +3764,7 @@ namespace Illuminate\Support\Facades {
         public static function selectFromWriteConnection($query, $bindings = array())
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::selectFromWriteConnection($query, $bindings);
+            return \Illuminate\Database\PostgresConnection::selectFromWriteConnection($query, $bindings);
         }
         
         /**
@@ -3792,7 +3779,7 @@ namespace Illuminate\Support\Facades {
         public static function select($query, $bindings = array(), $useReadPdo = true)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::select($query, $bindings, $useReadPdo);
+            return \Illuminate\Database\PostgresConnection::select($query, $bindings, $useReadPdo);
         }
         
         /**
@@ -3807,7 +3794,7 @@ namespace Illuminate\Support\Facades {
         public static function cursor($query, $bindings = array(), $useReadPdo = true)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::cursor($query, $bindings, $useReadPdo);
+            return \Illuminate\Database\PostgresConnection::cursor($query, $bindings, $useReadPdo);
         }
         
         /**
@@ -3821,7 +3808,7 @@ namespace Illuminate\Support\Facades {
         public static function insert($query, $bindings = array())
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::insert($query, $bindings);
+            return \Illuminate\Database\PostgresConnection::insert($query, $bindings);
         }
         
         /**
@@ -3835,7 +3822,7 @@ namespace Illuminate\Support\Facades {
         public static function update($query, $bindings = array())
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::update($query, $bindings);
+            return \Illuminate\Database\PostgresConnection::update($query, $bindings);
         }
         
         /**
@@ -3849,7 +3836,7 @@ namespace Illuminate\Support\Facades {
         public static function delete($query, $bindings = array())
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::delete($query, $bindings);
+            return \Illuminate\Database\PostgresConnection::delete($query, $bindings);
         }
         
         /**
@@ -3863,7 +3850,7 @@ namespace Illuminate\Support\Facades {
         public static function statement($query, $bindings = array())
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::statement($query, $bindings);
+            return \Illuminate\Database\PostgresConnection::statement($query, $bindings);
         }
         
         /**
@@ -3877,7 +3864,7 @@ namespace Illuminate\Support\Facades {
         public static function affectingStatement($query, $bindings = array())
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::affectingStatement($query, $bindings);
+            return \Illuminate\Database\PostgresConnection::affectingStatement($query, $bindings);
         }
         
         /**
@@ -3890,7 +3877,7 @@ namespace Illuminate\Support\Facades {
         public static function unprepared($query)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::unprepared($query);
+            return \Illuminate\Database\PostgresConnection::unprepared($query);
         }
         
         /**
@@ -3903,7 +3890,21 @@ namespace Illuminate\Support\Facades {
         public static function pretend($callback)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::pretend($callback);
+            return \Illuminate\Database\PostgresConnection::pretend($callback);
+        }
+        
+        /**
+         * Bind values to their parameters in the given statement.
+         *
+         * @param \PDOStatement $statement
+         * @param array $bindings
+         * @return void 
+         * @static 
+         */ 
+        public static function bindValues($statement, $bindings)
+        {
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\PostgresConnection::bindValues($statement, $bindings);
         }
         
         /**
@@ -3916,7 +3917,7 @@ namespace Illuminate\Support\Facades {
         public static function prepareBindings($bindings)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::prepareBindings($bindings);
+            return \Illuminate\Database\PostgresConnection::prepareBindings($bindings);
         }
         
         /**
@@ -3931,7 +3932,7 @@ namespace Illuminate\Support\Facades {
         public static function logQuery($query, $bindings, $time = null)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::logQuery($query, $bindings, $time);
+            \Illuminate\Database\PostgresConnection::logQuery($query, $bindings, $time);
         }
         
         /**
@@ -3944,7 +3945,7 @@ namespace Illuminate\Support\Facades {
         public static function listen($callback)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::listen($callback);
+            \Illuminate\Database\PostgresConnection::listen($callback);
         }
         
         /**
@@ -3957,7 +3958,7 @@ namespace Illuminate\Support\Facades {
         public static function raw($value)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::raw($value);
+            return \Illuminate\Database\PostgresConnection::raw($value);
         }
         
         /**
@@ -3970,7 +3971,7 @@ namespace Illuminate\Support\Facades {
         public static function recordsHaveBeenModified($value = true)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::recordsHaveBeenModified($value);
+            \Illuminate\Database\PostgresConnection::recordsHaveBeenModified($value);
         }
         
         /**
@@ -3982,7 +3983,7 @@ namespace Illuminate\Support\Facades {
         public static function isDoctrineAvailable()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::isDoctrineAvailable();
+            return \Illuminate\Database\PostgresConnection::isDoctrineAvailable();
         }
         
         /**
@@ -3996,7 +3997,7 @@ namespace Illuminate\Support\Facades {
         public static function getDoctrineColumn($table, $column)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getDoctrineColumn($table, $column);
+            return \Illuminate\Database\PostgresConnection::getDoctrineColumn($table, $column);
         }
         
         /**
@@ -4008,7 +4009,7 @@ namespace Illuminate\Support\Facades {
         public static function getDoctrineSchemaManager()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getDoctrineSchemaManager();
+            return \Illuminate\Database\PostgresConnection::getDoctrineSchemaManager();
         }
         
         /**
@@ -4020,7 +4021,7 @@ namespace Illuminate\Support\Facades {
         public static function getDoctrineConnection()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getDoctrineConnection();
+            return \Illuminate\Database\PostgresConnection::getDoctrineConnection();
         }
         
         /**
@@ -4032,7 +4033,7 @@ namespace Illuminate\Support\Facades {
         public static function getPdo()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getPdo();
+            return \Illuminate\Database\PostgresConnection::getPdo();
         }
         
         /**
@@ -4044,7 +4045,7 @@ namespace Illuminate\Support\Facades {
         public static function getReadPdo()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getReadPdo();
+            return \Illuminate\Database\PostgresConnection::getReadPdo();
         }
         
         /**
@@ -4057,7 +4058,7 @@ namespace Illuminate\Support\Facades {
         public static function setPdo($pdo)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setPdo($pdo);
+            return \Illuminate\Database\PostgresConnection::setPdo($pdo);
         }
         
         /**
@@ -4070,7 +4071,7 @@ namespace Illuminate\Support\Facades {
         public static function setReadPdo($pdo)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setReadPdo($pdo);
+            return \Illuminate\Database\PostgresConnection::setReadPdo($pdo);
         }
         
         /**
@@ -4083,7 +4084,7 @@ namespace Illuminate\Support\Facades {
         public static function setReconnector($reconnector)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setReconnector($reconnector);
+            return \Illuminate\Database\PostgresConnection::setReconnector($reconnector);
         }
         
         /**
@@ -4095,7 +4096,7 @@ namespace Illuminate\Support\Facades {
         public static function getName()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getName();
+            return \Illuminate\Database\PostgresConnection::getName();
         }
         
         /**
@@ -4108,7 +4109,7 @@ namespace Illuminate\Support\Facades {
         public static function getConfig($option = null)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getConfig($option);
+            return \Illuminate\Database\PostgresConnection::getConfig($option);
         }
         
         /**
@@ -4120,7 +4121,7 @@ namespace Illuminate\Support\Facades {
         public static function getDriverName()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getDriverName();
+            return \Illuminate\Database\PostgresConnection::getDriverName();
         }
         
         /**
@@ -4132,7 +4133,7 @@ namespace Illuminate\Support\Facades {
         public static function getQueryGrammar()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getQueryGrammar();
+            return \Illuminate\Database\PostgresConnection::getQueryGrammar();
         }
         
         /**
@@ -4145,7 +4146,7 @@ namespace Illuminate\Support\Facades {
         public static function setQueryGrammar($grammar)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setQueryGrammar($grammar);
+            return \Illuminate\Database\PostgresConnection::setQueryGrammar($grammar);
         }
         
         /**
@@ -4157,7 +4158,7 @@ namespace Illuminate\Support\Facades {
         public static function getSchemaGrammar()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getSchemaGrammar();
+            return \Illuminate\Database\PostgresConnection::getSchemaGrammar();
         }
         
         /**
@@ -4170,7 +4171,7 @@ namespace Illuminate\Support\Facades {
         public static function setSchemaGrammar($grammar)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setSchemaGrammar($grammar);
+            return \Illuminate\Database\PostgresConnection::setSchemaGrammar($grammar);
         }
         
         /**
@@ -4182,7 +4183,7 @@ namespace Illuminate\Support\Facades {
         public static function getPostProcessor()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getPostProcessor();
+            return \Illuminate\Database\PostgresConnection::getPostProcessor();
         }
         
         /**
@@ -4195,7 +4196,7 @@ namespace Illuminate\Support\Facades {
         public static function setPostProcessor($processor)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setPostProcessor($processor);
+            return \Illuminate\Database\PostgresConnection::setPostProcessor($processor);
         }
         
         /**
@@ -4207,7 +4208,7 @@ namespace Illuminate\Support\Facades {
         public static function getEventDispatcher()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getEventDispatcher();
+            return \Illuminate\Database\PostgresConnection::getEventDispatcher();
         }
         
         /**
@@ -4220,7 +4221,7 @@ namespace Illuminate\Support\Facades {
         public static function setEventDispatcher($events)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setEventDispatcher($events);
+            return \Illuminate\Database\PostgresConnection::setEventDispatcher($events);
         }
         
         /**
@@ -4232,7 +4233,7 @@ namespace Illuminate\Support\Facades {
         public static function unsetEventDispatcher()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::unsetEventDispatcher();
+            \Illuminate\Database\PostgresConnection::unsetEventDispatcher();
         }
         
         /**
@@ -4244,7 +4245,7 @@ namespace Illuminate\Support\Facades {
         public static function pretending()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::pretending();
+            return \Illuminate\Database\PostgresConnection::pretending();
         }
         
         /**
@@ -4256,7 +4257,7 @@ namespace Illuminate\Support\Facades {
         public static function getQueryLog()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getQueryLog();
+            return \Illuminate\Database\PostgresConnection::getQueryLog();
         }
         
         /**
@@ -4268,7 +4269,7 @@ namespace Illuminate\Support\Facades {
         public static function flushQueryLog()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::flushQueryLog();
+            \Illuminate\Database\PostgresConnection::flushQueryLog();
         }
         
         /**
@@ -4280,7 +4281,7 @@ namespace Illuminate\Support\Facades {
         public static function enableQueryLog()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::enableQueryLog();
+            \Illuminate\Database\PostgresConnection::enableQueryLog();
         }
         
         /**
@@ -4292,7 +4293,7 @@ namespace Illuminate\Support\Facades {
         public static function disableQueryLog()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::disableQueryLog();
+            \Illuminate\Database\PostgresConnection::disableQueryLog();
         }
         
         /**
@@ -4304,7 +4305,7 @@ namespace Illuminate\Support\Facades {
         public static function logging()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::logging();
+            return \Illuminate\Database\PostgresConnection::logging();
         }
         
         /**
@@ -4316,7 +4317,7 @@ namespace Illuminate\Support\Facades {
         public static function getDatabaseName()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getDatabaseName();
+            return \Illuminate\Database\PostgresConnection::getDatabaseName();
         }
         
         /**
@@ -4329,7 +4330,7 @@ namespace Illuminate\Support\Facades {
         public static function setDatabaseName($database)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setDatabaseName($database);
+            return \Illuminate\Database\PostgresConnection::setDatabaseName($database);
         }
         
         /**
@@ -4341,7 +4342,7 @@ namespace Illuminate\Support\Facades {
         public static function getTablePrefix()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getTablePrefix();
+            return \Illuminate\Database\PostgresConnection::getTablePrefix();
         }
         
         /**
@@ -4354,7 +4355,7 @@ namespace Illuminate\Support\Facades {
         public static function setTablePrefix($prefix)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setTablePrefix($prefix);
+            return \Illuminate\Database\PostgresConnection::setTablePrefix($prefix);
         }
         
         /**
@@ -4367,7 +4368,7 @@ namespace Illuminate\Support\Facades {
         public static function withTablePrefix($grammar)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::withTablePrefix($grammar);
+            return \Illuminate\Database\PostgresConnection::withTablePrefix($grammar);
         }
         
         /**
@@ -4381,7 +4382,7 @@ namespace Illuminate\Support\Facades {
         public static function resolverFor($driver, $callback)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::resolverFor($driver, $callback);
+            \Illuminate\Database\PostgresConnection::resolverFor($driver, $callback);
         }
         
         /**
@@ -4394,7 +4395,7 @@ namespace Illuminate\Support\Facades {
         public static function getResolver($driver)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getResolver($driver);
+            return \Illuminate\Database\PostgresConnection::getResolver($driver);
         }
         
         /**
@@ -4409,7 +4410,7 @@ namespace Illuminate\Support\Facades {
         public static function transaction($callback, $attempts = 1)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::transaction($callback, $attempts);
+            return \Illuminate\Database\PostgresConnection::transaction($callback, $attempts);
         }
         
         /**
@@ -4422,7 +4423,7 @@ namespace Illuminate\Support\Facades {
         public static function beginTransaction()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::beginTransaction();
+            \Illuminate\Database\PostgresConnection::beginTransaction();
         }
         
         /**
@@ -4434,7 +4435,7 @@ namespace Illuminate\Support\Facades {
         public static function commit()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::commit();
+            \Illuminate\Database\PostgresConnection::commit();
         }
         
         /**
@@ -4448,7 +4449,7 @@ namespace Illuminate\Support\Facades {
         public static function rollBack($toLevel = null)
         {
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::rollBack($toLevel);
+            \Illuminate\Database\PostgresConnection::rollBack($toLevel);
         }
         
         /**
@@ -4460,7 +4461,7 @@ namespace Illuminate\Support\Facades {
         public static function transactionLevel()
         {
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::transactionLevel();
+            return \Illuminate\Database\PostgresConnection::transactionLevel();
         }
          
     }
@@ -10586,7 +10587,29 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function hasTable($table)
         {
-            return \Illuminate\Database\Schema\MySqlBuilder::hasTable($table);
+            return \Illuminate\Database\Schema\PostgresBuilder::hasTable($table);
+        }
+        
+        /**
+         * Drop all tables from the database.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function dropAllTables()
+        {
+            \Illuminate\Database\Schema\PostgresBuilder::dropAllTables();
+        }
+        
+        /**
+         * Drop all views from the database.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function dropAllViews()
+        {
+            \Illuminate\Database\Schema\PostgresBuilder::dropAllViews();
         }
         
         /**
@@ -10598,29 +10621,7 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getColumnListing($table)
         {
-            return \Illuminate\Database\Schema\MySqlBuilder::getColumnListing($table);
-        }
-        
-        /**
-         * Drop all tables from the database.
-         *
-         * @return void 
-         * @static 
-         */ 
-        public static function dropAllTables()
-        {
-            \Illuminate\Database\Schema\MySqlBuilder::dropAllTables();
-        }
-        
-        /**
-         * Drop all views from the database.
-         *
-         * @return void 
-         * @static 
-         */ 
-        public static function dropAllViews()
-        {
-            \Illuminate\Database\Schema\MySqlBuilder::dropAllViews();
+            return \Illuminate\Database\Schema\PostgresBuilder::getColumnListing($table);
         }
         
         /**
@@ -10633,7 +10634,7 @@ namespace Illuminate\Support\Facades {
         public static function defaultStringLength($length)
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::defaultStringLength($length);
+            \Illuminate\Database\Schema\PostgresBuilder::defaultStringLength($length);
         }
         
         /**
@@ -10647,7 +10648,7 @@ namespace Illuminate\Support\Facades {
         public static function hasColumn($table, $column)
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::hasColumn($table, $column);
+            return \Illuminate\Database\Schema\PostgresBuilder::hasColumn($table, $column);
         }
         
         /**
@@ -10661,7 +10662,7 @@ namespace Illuminate\Support\Facades {
         public static function hasColumns($table, $columns)
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::hasColumns($table, $columns);
+            return \Illuminate\Database\Schema\PostgresBuilder::hasColumns($table, $columns);
         }
         
         /**
@@ -10675,7 +10676,7 @@ namespace Illuminate\Support\Facades {
         public static function getColumnType($table, $column)
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::getColumnType($table, $column);
+            return \Illuminate\Database\Schema\PostgresBuilder::getColumnType($table, $column);
         }
         
         /**
@@ -10689,7 +10690,7 @@ namespace Illuminate\Support\Facades {
         public static function table($table, $callback)
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::table($table, $callback);
+            \Illuminate\Database\Schema\PostgresBuilder::table($table, $callback);
         }
         
         /**
@@ -10703,7 +10704,7 @@ namespace Illuminate\Support\Facades {
         public static function create($table, $callback)
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::create($table, $callback);
+            \Illuminate\Database\Schema\PostgresBuilder::create($table, $callback);
         }
         
         /**
@@ -10716,7 +10717,7 @@ namespace Illuminate\Support\Facades {
         public static function drop($table)
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::drop($table);
+            \Illuminate\Database\Schema\PostgresBuilder::drop($table);
         }
         
         /**
@@ -10729,7 +10730,7 @@ namespace Illuminate\Support\Facades {
         public static function dropIfExists($table)
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::dropIfExists($table);
+            \Illuminate\Database\Schema\PostgresBuilder::dropIfExists($table);
         }
         
         /**
@@ -10743,7 +10744,7 @@ namespace Illuminate\Support\Facades {
         public static function rename($from, $to)
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::rename($from, $to);
+            \Illuminate\Database\Schema\PostgresBuilder::rename($from, $to);
         }
         
         /**
@@ -10755,7 +10756,7 @@ namespace Illuminate\Support\Facades {
         public static function enableForeignKeyConstraints()
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::enableForeignKeyConstraints();
+            return \Illuminate\Database\Schema\PostgresBuilder::enableForeignKeyConstraints();
         }
         
         /**
@@ -10767,7 +10768,7 @@ namespace Illuminate\Support\Facades {
         public static function disableForeignKeyConstraints()
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::disableForeignKeyConstraints();
+            return \Illuminate\Database\Schema\PostgresBuilder::disableForeignKeyConstraints();
         }
         
         /**
@@ -10779,7 +10780,7 @@ namespace Illuminate\Support\Facades {
         public static function getConnection()
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::getConnection();
+            return \Illuminate\Database\Schema\PostgresBuilder::getConnection();
         }
         
         /**
@@ -10792,7 +10793,7 @@ namespace Illuminate\Support\Facades {
         public static function setConnection($connection)
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::setConnection($connection);
+            return \Illuminate\Database\Schema\PostgresBuilder::setConnection($connection);
         }
         
         /**
@@ -10805,7 +10806,7 @@ namespace Illuminate\Support\Facades {
         public static function blueprintResolver($resolver)
         {
             //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::blueprintResolver($resolver);
+            \Illuminate\Database\Schema\PostgresBuilder::blueprintResolver($resolver);
         }
          
     }
@@ -13377,741 +13378,124 @@ namespace Telegram\Bot\Laravel\Facades {
     class Telegram {
         
         /**
-         * Returns the TelegramClient service.
-         *
-         * @return \Telegram\Bot\TelegramClient 
-         * @static 
-         */ 
-        public static function getClient()
-        {
-            return \Telegram\Bot\Api::getClient();
-        }
-        
-        /**
-         * Returns Telegram Bot API Access Token.
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function getAccessToken()
-        {
-            return \Telegram\Bot\Api::getAccessToken();
-        }
-        
-        /**
-         * Returns the last response returned from API request.
-         *
-         * @return \Telegram\Bot\TelegramResponse 
-         * @static 
-         */ 
-        public static function getLastResponse()
-        {
-            return \Telegram\Bot\Api::getLastResponse();
-        }
-        
-        /**
-         * Sets the bot access token to use with API requests.
-         *
-         * @param string $accessToken The bot access token to save.
-         * @throws \InvalidArgumentException
-         * @return \Telegram\Bot\Api 
-         * @static 
-         */ 
-        public static function setAccessToken($accessToken)
-        {
-            return \Telegram\Bot\Api::setAccessToken($accessToken);
-        }
-        
-        /**
-         * Make this request asynchronous (non-blocking).
-         *
-         * @param bool $isAsyncRequest
-         * @return \Telegram\Bot\Api 
-         * @static 
-         */ 
-        public static function setAsyncRequest($isAsyncRequest)
-        {
-            return \Telegram\Bot\Api::setAsyncRequest($isAsyncRequest);
-        }
-        
-        /**
-         * Check if this is an asynchronous request (non-blocking).
-         *
-         * @return bool 
-         * @static 
-         */ 
-        public static function isAsyncRequest()
-        {
-            return \Telegram\Bot\Api::isAsyncRequest();
-        }
-        
-        /**
-         * Returns SDK's Command Bus.
-         *
-         * @return \Telegram\Bot\CommandBus 
-         * @static 
-         */ 
-        public static function getCommandBus()
-        {
-            return \Telegram\Bot\Api::getCommandBus();
-        }
-        
-        /**
-         * Add Telegram Command to the Command Bus.
-         *
-         * @param \Telegram\Bot\CommandInterface|string $command
-         * @return \Telegram\Bot\CommandBus 
-         * @static 
-         */ 
-        public static function addCommand($command)
-        {
-            return \Telegram\Bot\Api::addCommand($command);
-        }
-        
-        /**
-         * Add Telegram Commands to the Command Bus.
-         *
-         * @param array $commands
-         * @return \Telegram\Bot\CommandBus 
-         * @static 
-         */ 
-        public static function addCommands($commands)
-        {
-            return \Telegram\Bot\Api::addCommands($commands);
-        }
-        
-        /**
-         * Remove Telegram Command to the Command Bus.
-         *
-         * @param string $name
-         * @return \Telegram\Bot\CommandBus 
-         * @static 
-         */ 
-        public static function removeCommand($name)
-        {
-            return \Telegram\Bot\Api::removeCommand($name);
-        }
-        
-        /**
-         * Remove Telegram Commands from the Command Bus.
-         *
-         * @param array $names
-         * @return \Telegram\Bot\CommandBus 
-         * @static 
-         */ 
-        public static function removeCommands($names)
-        {
-            return \Telegram\Bot\Api::removeCommands($names);
-        }
-        
-        /**
-         * Returns list of available commands.
-         *
-         * @return \Telegram\Bot\Commands\Command[] 
-         * @static 
-         */ 
-        public static function getCommands()
-        {
-            return \Telegram\Bot\Api::getCommands();
-        }
-        
-        /**
-         * A simple method for testing your bot's auth token.
-         * 
-         * Returns basic information about the bot in form of a User object.
-         *
-         * @link https://core.telegram.org/bots/api#getme
-         * @return \Telegram\Bot\User 
-         * @static 
-         */ 
-        public static function getMe()
-        {
-            return \Telegram\Bot\Api::getMe();
-        }
-        
-        /**
-         * Send text messages.
-         * 
-         * <code>
-         * $params = [
-         *   'chat_id'                  => '',
-         *   'text'                     => '',
-         *   'parse_mode'               => '',
-         *   'disable_web_page_preview' => '',
-         *   'reply_to_message_id'      => '',
-         *   'reply_markup'             => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#sendmessage
-         * @param array $params
-         * @var int|string $params ['chat_id']
-         * @var string     $params ['text']
-         * @var string     $params ['parse_mode']
-         * @var bool       $params ['disable_web_page_preview']
-         * @var int        $params ['reply_to_message_id']
-         * @var string     $params ['reply_markup']
-         * @return \Telegram\Bot\Message 
-         * @static 
-         */ 
-        public static function sendMessage($params)
-        {
-            return \Telegram\Bot\Api::sendMessage($params);
-        }
-        
-        /**
-         * Forward messages of any kind.
-         * 
-         * <code>
-         * $params = [
-         *   'chat_id'      => '',
-         *   'from_chat_id' => '',
-         *   'message_id'   => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#forwardmessage
-         * @param array $params
-         * @var int|string $params ['chat_id']
-         * @var int        $params ['from_chat_id']
-         * @var int        $params ['message_id']
-         * @return \Telegram\Bot\Message 
-         * @static 
-         */ 
-        public static function forwardMessage($params)
-        {
-            return \Telegram\Bot\Api::forwardMessage($params);
-        }
-        
-        /**
-         * Send Photos.
-         * 
-         * <code>
-         * $params = [
-         *   'chat_id'             => '',
-         *   'photo'               => '',
-         *   'caption'             => '',
-         *   'reply_to_message_id' => '',
-         *   'reply_markup'        => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#sendphoto
-         * @param array $params
-         * @var int|string $params ['chat_id']
-         * @var string     $params ['photo']
-         * @var string     $params ['caption']
-         * @var int        $params ['reply_to_message_id']
-         * @var string     $params ['reply_markup']
-         * @return \Telegram\Bot\Message 
-         * @static 
-         */ 
-        public static function sendPhoto($params)
-        {
-            return \Telegram\Bot\Api::sendPhoto($params);
-        }
-        
-        /**
-         * Send regular audio files.
-         * 
-         * <code>
-         * $params = [
-         *   'chat_id'             => '',
-         *   'audio'               => '',
-         *   'duration'            => '',
-         *   'performer'           => '',
-         *   'title'               => '',
-         *   'reply_to_message_id' => '',
-         *   'reply_markup'        => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#sendaudio
-         * @param array $params
-         * @var int|string $params ['chat_id']
-         * @var string     $params ['audio']
-         * @var int        $params ['duration']
-         * @var string     $params ['performer']
-         * @var string     $params ['title']
-         * @var int        $params ['reply_to_message_id']
-         * @var string     $params ['reply_markup']
-         * @return \Telegram\Bot\Message 
-         * @static 
-         */ 
-        public static function sendAudio($params)
-        {
-            return \Telegram\Bot\Api::sendAudio($params);
-        }
-        
-        /**
-         * Send general files.
-         * 
-         * <code>
-         * $params = [
-         *   'chat_id'             => '',
-         *   'document'            => '',
-         *   'reply_to_message_id' => '',
-         *   'reply_markup'        => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#senddocument
-         * @param array $params
-         * @var int|string $params ['chat_id']
-         * @var string     $params ['document']
-         * @var int        $params ['reply_to_message_id']
-         * @var string     $params ['reply_markup']
-         * @return \Telegram\Bot\Message 
-         * @static 
-         */ 
-        public static function sendDocument($params)
-        {
-            return \Telegram\Bot\Api::sendDocument($params);
-        }
-        
-        /**
-         * Send .webp stickers.
-         * 
-         * <code>
-         * $params = [
-         *   'chat_id' => '',
-         *   'sticker' => '',
-         *   'reply_to_message_id' => '',
-         *   'reply_markup' => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#sendsticker
-         * @param array $params
-         * @var int|string $params ['chat_id']
-         * @var string     $params ['sticker']
-         * @var int        $params ['reply_to_message_id']
-         * @var string     $params ['reply_markup']
-         * @throws TelegramSDKException
-         * @return \Telegram\Bot\Message 
-         * @static 
-         */ 
-        public static function sendSticker($params)
-        {
-            return \Telegram\Bot\Api::sendSticker($params);
-        }
-        
-        /**
-         * Send Video File, Telegram clients support mp4 videos (other formats may be sent as Document).
-         * 
-         * <code>
-         * $params = [
-         *   'chat_id'             => '',
-         *   'video'               => '',
-         *   'duration'            => '',
-         *   'caption'             => '',
-         *   'reply_to_message_id' => '',
-         *   'reply_markup'        => '',
-         * ];
-         * </code>
-         *
-         * @see sendDocument
-         * @link https://core.telegram.org/bots/api#sendvideo
-         * @param array $params
-         * @var int|string $params ['chat_id']
-         * @var string     $params ['video']
-         * @var int        $params ['duration']
-         * @var string     $params ['caption']
-         * @var int        $params ['reply_to_message_id']
-         * @var string     $params ['reply_markup']
-         * @return \Telegram\Bot\Message 
-         * @static 
-         */ 
-        public static function sendVideo($params)
-        {
-            return \Telegram\Bot\Api::sendVideo($params);
-        }
-        
-        /**
-         * Send voice audio files.
-         * 
-         * <code>
-         * $params = [
-         *   'chat_id'             => '',
-         *   'voice'               => '',
-         *   'duration'            => '',
-         *   'reply_to_message_id' => '',
-         *   'reply_markup'        => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#sendaudio
-         * @param array $params
-         * @var int|string $params ['chat_id']
-         * @var string     $params ['voice']
-         * @var int        $params ['duration']
-         * @var int        $params ['reply_to_message_id']
-         * @var string     $params ['reply_markup']
-         * @return \Telegram\Bot\Message 
-         * @static 
-         */ 
-        public static function sendVoice($params)
-        {
-            return \Telegram\Bot\Api::sendVoice($params);
-        }
-        
-        /**
-         * Send point on the map.
-         * 
-         * <code>
-         * $params = [
-         *   'chat_id'             => '',
-         *   'latitude'            => '',
-         *   'longitude'           => '',
-         *   'reply_to_message_id' => '',
-         *   'reply_markup'        => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#sendlocation
-         * @param array $params
-         * @var int|string $params ['chat_id']
-         * @var float      $params ['latitude']
-         * @var float      $params ['longitude']
-         * @var int        $params ['reply_to_message_id']
-         * @var string     $params ['reply_markup']
-         * @return \Telegram\Bot\Message 
-         * @static 
-         */ 
-        public static function sendLocation($params)
-        {
-            return \Telegram\Bot\Api::sendLocation($params);
-        }
-        
-        /**
-         * Broadcast a Chat Action.
-         * 
-         * <code>
-         * $params = [
-         *   'chat_id' => '',
-         *   'action'  => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#sendchataction
-         * @param array $params
-         * @var int|string $params ['chat_id']
-         * @var string     $params ['action']
-         * @throws TelegramSDKException
-         * @return \Telegram\Bot\TelegramResponse 
-         * @static 
-         */ 
-        public static function sendChatAction($params)
-        {
-            return \Telegram\Bot\Api::sendChatAction($params);
-        }
-        
-        /**
-         * Returns a list of profile pictures for a user.
-         * 
-         * <code>
-         * $params = [
-         *   'user_id' => '',
-         *   'offset'  => '',
-         *   'limit'   => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#getuserprofilephotos
-         * @param array $params
-         * @var int     $params ['user_id']
-         * @var int     $params ['offset']
-         * @var int     $params ['limit']
-         * @return \Telegram\Bot\UserProfilePhotos 
-         * @static 
-         */ 
-        public static function getUserProfilePhotos($params)
-        {
-            return \Telegram\Bot\Api::getUserProfilePhotos($params);
-        }
-        
-        /**
-         * Returns basic info about a file and prepare it for downloading.
-         * 
-         * <code>
-         * $params = [
-         *   'file_id' => '',
-         * ];
-         * </code>
-         * 
-         * The file can then be downloaded via the link
-         * https://api.telegram.org/file/bot<token>/<file_path>,
-         * where <file_path> is taken from the response.
-         *
-         * @link https://core.telegram.org/bots/api#getFile
-         * @param array $params
-         * @var string  $params ['file_id']
-         * @return \File 
-         * @static 
-         */ 
-        public static function getFile($params)
-        {
-            return \Telegram\Bot\Api::getFile($params);
-        }
-        
-        /**
-         * Set a Webhook to receive incoming updates via an outgoing webhook.
-         * 
-         * <code>
-         * $params = [
-         *   'url'         => '',
-         *   'certificate' => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#setwebhook
-         * @param array $params
-         * @var string  $params ['url']         HTTPS url to send updates to.
-         * @var string  $params ['certificate'] Upload your public key certificate so that the root certificate in
-         *                                      use can be checked.
-         * @throws TelegramSDKException
-         * @return \Telegram\Bot\TelegramResponse 
-         * @static 
-         */ 
-        public static function setWebhook($params)
-        {
-            return \Telegram\Bot\Api::setWebhook($params);
-        }
-        
-        /**
-         * Returns webhook updates sent by Telegram.
-         * 
-         * Works only if you set a webhook.
-         *
-         * @see setWebhook
-         * @return \Telegram\Bot\Update 
-         * @static 
-         */ 
-        public static function getWebhookUpdates()
-        {
-            return \Telegram\Bot\Api::getWebhookUpdates();
-        }
-        
-        /**
-         * Removes the outgoing webhook (if any).
-         *
-         * @return \Telegram\Bot\TelegramResponse 
-         * @static 
-         */ 
-        public static function removeWebhook()
-        {
-            return \Telegram\Bot\Api::removeWebhook();
-        }
-        
-        /**
-         * Use this method to receive incoming updates using long polling.
-         * 
-         * <code>
-         * $params = [
-         *   'offset'  => '',
-         *   'limit'   => '',
-         *   'timeout' => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#getupdates
-         * @param array $params
-         * @var int|null $params ['offset']
-         * @var int|null $params ['limit']
-         * @var int|null $params ['timeout']
-         * @return \Telegram\Bot\Update[] 
-         * @static 
-         */ 
-        public static function getUpdates($params = array())
-        {
-            return \Telegram\Bot\Api::getUpdates($params);
-        }
-        
-        /**
-         * Builds a custom keyboard markup.
-         * 
-         * <code>
-         * $params = [
-         *   'keyboard'          => '',
-         *   'resize_keyboard'   => '',
-         *   'one_time_keyboard' => '',
-         *   'selective'         => '',
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#replykeyboardmarkup
-         * @param array $params
-         * @var array   $params ['keyboard']
-         * @var bool    $params ['resize_keyboard']
-         * @var bool    $params ['one_time_keyboard']
-         * @var bool    $params ['selective']
-         * @return string 
-         * @static 
-         */ 
-        public static function replyKeyboardMarkup($params)
-        {
-            return \Telegram\Bot\Api::replyKeyboardMarkup($params);
-        }
-        
-        /**
-         * Hide the current custom keyboard and display the default letter-keyboard.
-         * 
-         * <code>
-         * $params = [
-         *   'hide_keyboard' => true,
-         *   'selective'     => false,
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#replykeyboardhide
-         * @param array $params
-         * @var bool    $params ['hide_keyboard']
-         * @var bool    $params ['selective']
-         * @return string 
-         * @static 
-         */ 
-        public static function replyKeyboardHide($params = array())
-        {
-            return \Telegram\Bot\Api::replyKeyboardHide($params);
-        }
-        
-        /**
-         * Display a reply interface to the user (act as if the user has selected the bot‘s message and tapped ’Reply').
-         * 
-         * <code>
-         * $params = [
-         *   'force_reply' => true,
-         *   'selective'   => false,
-         * ];
-         * </code>
-         *
-         * @link https://core.telegram.org/bots/api#forcereply
-         * @param array $params
-         * @var bool    $params ['force_reply']
-         * @var bool    $params ['selective']
-         * @return string 
-         * @static 
-         */ 
-        public static function forceReply($params = array())
-        {
-            return \Telegram\Bot\Api::forceReply($params);
-        }
-        
-        /**
-         * Processes Inbound Commands.
-         *
-         * @param bool $webhook
-         * @return \Telegram\Bot\Update|\Telegram\Bot\Update[] 
-         * @static 
-         */ 
-        public static function commandsHandler($webhook = false)
-        {
-            return \Telegram\Bot\Api::commandsHandler($webhook);
-        }
-        
-        /**
-         * Determine if a given type is the message.
-         *
-         * @param string $type
-         * @param \Telegram\Bot\Update|\Telegram\Bot\Message $object
-         * @return bool 
-         * @static 
-         */ 
-        public static function isMessageType($type, $object)
-        {
-            return \Telegram\Bot\Api::isMessageType($type, $object);
-        }
-        
-        /**
-         * Detect Message Type Based on Update or Message Object.
-         *
-         * @param \Telegram\Bot\Update|\Telegram\Bot\Message $object
-         * @return string|null 
-         * @static 
-         */ 
-        public static function detectMessageType($object)
-        {
-            return \Telegram\Bot\Api::detectMessageType($object);
-        }
-        
-        /**
          * Set the IoC Container.
          *
          * @param $container Container instance
-         * @return void 
+         * @return \Telegram\Bot\BotsManager 
          * @static 
          */ 
         public static function setContainer($container)
         {
-            \Telegram\Bot\Api::setContainer($container);
+            return \Telegram\Bot\BotsManager::setContainer($container);
         }
         
         /**
-         * Get the IoC Container.
+         * Get the configuration for a bot.
          *
-         * @return \Telegram\Bot\Container 
+         * @param string|null $name
+         * @throws \InvalidArgumentException
+         * @return array 
          * @static 
          */ 
-        public static function getContainer()
+        public static function getBotConfig($name = null)
         {
-            return \Telegram\Bot\Api::getContainer();
+            return \Telegram\Bot\BotsManager::getBotConfig($name);
         }
         
         /**
-         * Check if IoC Container has been set.
+         * Get a bot instance.
          *
-         * @return boolean 
+         * @param string $name
+         * @return \Telegram\Bot\Api 
          * @static 
          */ 
-        public static function hasContainer()
+        public static function bot($name = null)
         {
-            return \Telegram\Bot\Api::hasContainer();
+            return \Telegram\Bot\BotsManager::bot($name);
         }
         
         /**
-         * 
+         * Reconnect to the given bot.
          *
-         * @return int 
+         * @param string $name
+         * @return \Telegram\Bot\Api 
          * @static 
          */ 
-        public static function getTimeOut()
+        public static function reconnect($name = null)
         {
-            return \Telegram\Bot\Api::getTimeOut();
+            return \Telegram\Bot\BotsManager::reconnect($name);
         }
         
         /**
-         * 
+         * Disconnect from the given bot.
          *
-         * @param int $timeOut
-         * @return $this 
+         * @param string $name
+         * @return \Telegram\Bot\BotsManager 
          * @static 
          */ 
-        public static function setTimeOut($timeOut)
+        public static function disconnect($name = null)
         {
-            return \Telegram\Bot\Api::setTimeOut($timeOut);
+            return \Telegram\Bot\BotsManager::disconnect($name);
         }
         
         /**
-         * 
+         * Get the specified configuration value for Telegram.
          *
-         * @return int 
+         * @param string $key
+         * @param mixed $default
+         * @return mixed 
          * @static 
          */ 
-        public static function getConnectTimeOut()
+        public static function getConfig($key, $default = null)
         {
-            return \Telegram\Bot\Api::getConnectTimeOut();
+            return \Telegram\Bot\BotsManager::getConfig($key, $default);
         }
         
         /**
-         * 
+         * Get the default bot name.
          *
-         * @param int $connectTimeOut
-         * @return $this 
+         * @throws TelegramSDKException
+         * @return string|null 
          * @static 
          */ 
-        public static function setConnectTimeOut($connectTimeOut)
+        public static function getDefaultBotName()
         {
-            return \Telegram\Bot\Api::setConnectTimeOut($connectTimeOut);
+            return \Telegram\Bot\BotsManager::getDefaultBotName();
+        }
+        
+        /**
+         * Set the default bot name.
+         *
+         * @param string $name
+         * @return \Telegram\Bot\BotsManager 
+         * @static 
+         */ 
+        public static function setDefaultBot($name)
+        {
+            return \Telegram\Bot\BotsManager::setDefaultBot($name);
+        }
+        
+        /**
+         * Return all of the created bots.
+         *
+         * @return \Telegram\Bot\Api[] 
+         * @static 
+         */ 
+        public static function getBots()
+        {
+            return \Telegram\Bot\BotsManager::getBots();
+        }
+        
+        /**
+         * Builds the list of commands for the given commands array.
+         *
+         * @param array $commands
+         * @return array An array of commands which includes global and bot specific commands.
+         * @static 
+         */ 
+        public static function parseBotCommands($commands)
+        {
+            return \Telegram\Bot\BotsManager::parseBotCommands($commands);
         }
          
     }
