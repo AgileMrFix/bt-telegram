@@ -104,7 +104,7 @@ class TextProcessing
                 $this->setStep($this->step->type, $data, $action + 1);
 
                 $nextActionData = Step::getDataForEmployee($action + 1);
-                $reply_markup = $this->getMainKeyboard($nextActionData['keyboard']);
+                $reply_markup = $this->getKeyboard($nextActionData['keyboard']);
                 $this->sendMessage($nextActionData['message'], $reply_markup);
 
                 break;
