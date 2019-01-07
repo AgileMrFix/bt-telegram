@@ -57,6 +57,5 @@ return [
     */
     'commands' => [
         App\Http\Controllers\TelegramCommands\HelpCommand::class,
-        App\Http\Controllers\TelegramCommands\TestCommand::class
     ],
 ];
