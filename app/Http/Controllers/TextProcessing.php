@@ -168,7 +168,8 @@ class TextProcessing
     protected function getKeyboard($data = null)
     {
         if (is_null($data))
-            return json_encode(['remove_keyboard' => true]);
+            return Telegram::replyKeyboardMarkup([[]]);
+//            return json_encode(['remove_keyboard' => true]);
 
         return Telegram::replyKeyboardMarkup($data);
     }
