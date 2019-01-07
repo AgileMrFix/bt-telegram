@@ -100,7 +100,7 @@ class TextProcessing
             case 0:
                 $actionData = Step::getDataForEmployee($action);
                 $data = $this->unitStepData([$actionData['name'] => $this->text]);
-                $this->setStep($this->step->type, $data, $action++);
+                $this->setStep($this->step->type, $data, $action + 1);
 
                 $nextActionData = Step::getDataForEmployee($action++);
                 $reply_markup = $this->getMainKeyboard($nextActionData['keyboard']);
@@ -164,10 +164,10 @@ class TextProcessing
         return true;
     }
 
-    protected function getKeyboard($data=null)
+    protected function getKeyboard($data = null)
     {
         if (is_null($data))
-            return json_encode(['remove_keyboard'=>true]);
+            return json_encode(['remove_keyboard' => true]);
 
         return Telegram::replyKeyboardMarkup($data);
     }
