@@ -32,7 +32,7 @@ Route::get('rem', function () {
 
 Route::get('send', function () {
     $reply_markup = Telegram::replyKeyboardMarkup([
-        'keyboard' => [['1']],
+        'keyboard' => [[]],
         'resize_keyboard' => true,
         'one_time_keyboard' => true
     ]);
