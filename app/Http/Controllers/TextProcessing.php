@@ -13,7 +13,6 @@ use App\Models\Telegram\Department;
 use App\Models\Telegram\SecurityCode;
 use App\Models\Telegram\TelegramUser;
 use App\Step;
-use function PHPSTORM_META\type;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class TextProcessing

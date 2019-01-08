@@ -101,7 +101,6 @@ class WebhookController extends Controller
                     return;
                 }
                 $this->textProcessing->processText($this->message['text']);
-                $this->textProcessing->sendMessage('ok');
                 break;
             case $this->message->has('audio'):
                 $partMessage = trans('telegram.message_types_description.audio');
