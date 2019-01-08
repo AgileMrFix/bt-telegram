@@ -32,13 +32,13 @@ Route::get('rem', function () {
 
 Route::get('send', function () {
     $reply_markup = [
-        'keyboard' => [['123','345']],
+        'keyboard' => [['123', '345']],
         'resize_keyboard' => true,
         'one_time_keyboard' => false
     ];
 
-    Telegram::replyKeyboardMarkup($reply_markup);
-    $response = Telegram::sendMessage(['text' => 'asd', 'chat_id' => 357906340, 'reply_markup'=>$reply_markup]);
+    $reply_markup = Telegram::replyKeyboardMarkup($reply_markup);
+    $response = Telegram::sendMessage(['text' => now(), 'chat_id' => 357906340, 'reply_markup' => $reply_markup]);
     return $response;
 });
 
