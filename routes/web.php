@@ -38,7 +38,7 @@ Route::get('send', function () {
     ];
 
     $reply_markup = Telegram::replyKeyboardMarkup($reply_markup);
-    $response = Telegram::sendMessage(['text' => now(), 'chat_id' => 357906340, 'reply_markup' => $reply_markup]);
+    $response = Telegram::sendMessage(['text' => now()->timestamp, 'chat_id' => 357906340, 'reply_markup' => $reply_markup]);
     return $response;
 });
 
