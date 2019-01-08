@@ -23,7 +23,6 @@ class Step extends Model
     }
 
 
-
     public static function getDataForEmployee($action)
     {
         $data = [
@@ -38,15 +37,26 @@ class Step extends Model
                 'keyboard' => null,
             ],
             2 => [
-                'name' => 'department',
+                'name' => 'department_id',
                 'message' => "Оберіть відділ:",
-                'keyboard' => [
+                'keyboard' => self::array2keyboard(
                     Department::all()->pluck('name')->toArray()
-                ],
+                ),
             ]
         ];
 
         return $data[$action];
+    }
+
+    protected static function array2keyboard($arr)
+    {
+        $data = [];
+        foreach ($arr as $item) {
+            $data[] = $item;
+        }
+
+        $keyboard = [$data];
+        return $keyboard;
     }
 
 
