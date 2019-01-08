@@ -52,10 +52,10 @@ class Step extends Model
     {
         $data = [];
         foreach ($arr as $item) {
-            $data[] = $item;
+            $data[] = [$item];
         }
 
-        $keyboard = [$data];
+        $keyboard = $data;
         return $keyboard;
     }
 

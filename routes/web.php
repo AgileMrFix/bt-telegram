@@ -31,18 +31,24 @@ Route::get('rem', function () {
 });
 
 Route::get('send', function () {
+
+    $data = [];
+    foreach (\App\Models\Telegram\Department::all()->pluck('name')->toArray() as $item) {
+        $data[] = [$item];
+    }
+
+    $keyboard = $data;
+
+    return $keyboard;
     $reply_markup = [
-        'keyboard' => [['123', '345']],
+        'keyboard' => $keyboard,
         'resize_keyboard' => true,
         'one_time_keyboard' => true,
 
     ];
-    $reply_markup = [
-        'remove_keyboard' => true,
-    ];
+
 
     $reply_markup = Telegram::replyKeyboardMarkup($reply_markup);
-    dd($reply_markup);
     $response = Telegram::sendMessage(['text' => now()->timestamp, 'chat_id' => 357906340, 'reply_markup' => $reply_markup]);
     return $response;
 });
