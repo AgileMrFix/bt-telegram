@@ -28,12 +28,12 @@ class Step extends Model
         $data = [
             0 => [
                 'name' => 'first_name',
-                'message' => "Ваше ім'я:",
+                'message' => ["Для початку необхідно представитись.", "Яке Ваше ім'я?"],
                 'keyboard' => null,
             ],
             1 => [
                 'name' => 'last_name',
-                'message' => "Ваше прізвище:",
+                'message' => "Ваше прізвище?",
                 'keyboard' => null,
             ],
             2 => [

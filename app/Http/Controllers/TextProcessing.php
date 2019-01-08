@@ -13,6 +13,7 @@ use App\Models\Telegram\Department;
 use App\Models\Telegram\SecurityCode;
 use App\Models\Telegram\TelegramUser;
 use App\Step;
+use function PHPSTORM_META\type;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class TextProcessing
@@ -83,10 +84,19 @@ class TextProcessing
         return;
     }
 
-    public function sendMessage($text, $reply_markup = [], $chat_id = null)
+    public function sendMessage($texts, $reply_markup = [], $chat_id = null)
     {
         $chat_id = is_null($chat_id) ? $this->telegramUser->id : $chat_id;
-        return Telegram::sendMessage(compact('chat_id', 'text', 'reply_markup'));
+        if (gettype($texts) == gettype([])) {
+            foreach ($texts as $text) {
+                Telegram::sendMessage(compact('chat_id', 'text', 'reply_markup'));
+            }
+
+        } else {
+            $text = $texts;
+            Telegram::sendMessage(compact('chat_id', 'text', 'reply_markup'));
+        }
+        return;
     }
 
     protected function setStep($type, $data = "[]", $action = 0)
