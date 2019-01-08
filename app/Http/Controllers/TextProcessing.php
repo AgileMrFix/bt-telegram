@@ -168,13 +168,18 @@ class TextProcessing
         return $search;
     }
 
-    protected function getKeyboard($data = null)
+    protected function getKeyboard($keyboard = null)
     {
-        if (is_null($data))
-            return Telegram::replyKeyboardMarkup([[]]);
-//            return json_encode(['remove_keyboard' => true]);
+        if (is_null($keyboard))
+            return Telegram::replyKeyboardMarkup(['remove_keyboard' => true]);
 
-        return Telegram::replyKeyboardMarkup($data);
+        $reply_markup = [
+            'keyboard' => $keyboard,
+            'resize_keyboard' => true,
+            'one_time_keyboard' => true,
+
+        ];
+        return Telegram::replyKeyboardMarkup($reply_markup);
     }
 
     protected function getMainKeyboard()
