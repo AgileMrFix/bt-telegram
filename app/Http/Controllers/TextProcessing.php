@@ -101,21 +101,21 @@ class TextProcessing
 
                 $actionData = Step::getDataForEmployee($action);
                 $data = $this->unitStepData([$actionData['name'] => $this->text]);
-                $this->setStep($this->step->type, $data, $action + 1);
 
                 $nextActionData = Step::getDataForEmployee($action + 1);
                 $reply_markup = $this->getKeyboard($nextActionData['keyboard']);
                 $this->sendMessage($nextActionData['message'], $reply_markup);
+                $this->setStep($this->step->type, $data, $action + 1);
 
                 break;
             case 1:
                 $actionData = Step::getDataForEmployee($action);
                 $data = $this->unitStepData([$actionData['name'] => $this->text]);
-                $this->setStep($this->step->type, $data, $action + 1);
 
                 $nextActionData = Step::getDataForEmployee($action + 1);
                 $reply_markup = $this->getKeyboard($nextActionData['keyboard']);
                 $this->sendMessage($nextActionData['message'], $reply_markup);
+                $this->setStep($this->step->type, $data, $action + 1);
                 break;
             case 2:
                 $actionData = Step::getDataForEmployee($action);
@@ -123,7 +123,6 @@ class TextProcessing
                 if (($department_id = $this->validateText()) !== false) {
                     $data = $this->unitStepData([$actionData['name'] => $department_id]);
                     $employee = $this->telegramUser->employee()->create(json_decode($data, true));
-                    $this->setStep(Step::TYPE_WAIT);
 
                     $reply_markup = $this->getMainKeyboard();
                     $this->sendMessage(
@@ -139,6 +138,7 @@ class TextProcessing
 
                 }
 
+                $this->setStep(Step::TYPE_WAIT);
                 break;
         }
     }
