@@ -104,8 +104,6 @@ class TextProcessing
                 $nextActionData = Step::getDataForEmployee($action + 1);
                 $reply_markup = $this->getKeyboard($nextActionData['keyboard']);
                 $this->sendMessage($nextActionData['message'], $reply_markup);
-                \Log::debug($reply_markup);
-                \Log::debug($nextActionData['keyboard']);
                 $this->setStep($this->step->type, $data, $action + 1);
 
                 break;
@@ -121,23 +119,24 @@ class TextProcessing
             case 2:
                 $actionData = Step::getDataForEmployee($action);
 
-                if (($department_id = $this->validateDepartment()) !== false) {
-                    $data = $this->unitStepData([$actionData['name'] => $department_id]);
-                    $employee = $this->telegramUser->employee()->create(json_decode($data, true));
-
-                    $reply_markup = $this->getMainKeyboard();
-                    $this->sendMessage(
-                        trans(
-                            'telegram.after_registration.success',
-                            [
-                                'Fist_name' => $employee->first_name,
-                                'Last_name' => $employee->last_name
-                            ]
-                        ),
-                        $reply_markup
-                    );
-
+                if (($department_id = $this->validateDepartment()) === false) {
+                    $this->sendMessage(trans('telegram.after_registration.error'));
+                    return;
                 }
+                $data = $this->unitStepData([$actionData['name'] => $department_id]);
+                $employee = $this->telegramUser->employee()->create(json_decode($data, true));
+
+                $reply_markup = $this->getMainKeyboard();
+                $this->sendMessage(
+                    trans(
+                        'telegram.after_registration.success',
+                        [
+                            'Fist_name' => ucfirst(strtolower($employee->first_name)),
+                            'Last_name' => ucfirst(strtolower($employee->last_name)),
+                        ]
+                    ),
+                    $reply_markup
+                );
 
                 $this->setStep(Step::TYPE_WAIT);
                 break;
