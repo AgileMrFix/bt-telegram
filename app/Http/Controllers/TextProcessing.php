@@ -83,7 +83,7 @@ class TextProcessing
         return;
     }
 
-    public function sendMessage($text, $reply_markup = null, $chat_id = null)
+    public function sendMessage($text, $reply_markup = [], $chat_id = null)
     {
         $chat_id = is_null($chat_id) ? $this->telegramUser->id : $chat_id;
         return Telegram::sendMessage(compact('chat_id', 'text', 'reply_markup'));
@@ -98,18 +98,18 @@ class TextProcessing
     {
         switch ($action = $this->step->action) {
             case 0:
-\Log::info(0);
                 $actionData = Step::getDataForEmployee($action);
                 $data = $this->unitStepData([$actionData['name'] => $this->text]);
 
                 $nextActionData = Step::getDataForEmployee($action + 1);
                 $reply_markup = $this->getKeyboard($nextActionData['keyboard']);
                 $this->sendMessage($nextActionData['message'], $reply_markup);
+                \Log::debug($reply_markup);
+                \Log::debug($nextActionData['keyboard']);
                 $this->setStep($this->step->type, $data, $action + 1);
 
                 break;
             case 1:
-\Log::info(1);
                 $actionData = Step::getDataForEmployee($action);
                 $data = $this->unitStepData([$actionData['name'] => $this->text]);
 
@@ -119,7 +119,6 @@ class TextProcessing
                 $this->setStep($this->step->type, $data, $action + 1);
                 break;
             case 2:
-\Log::info(2);
                 $actionData = Step::getDataForEmployee($action);
 
                 if (($department_id = $this->validateDepartment()) !== false) {
@@ -177,7 +176,6 @@ class TextProcessing
             'keyboard' => $keyboard,
             'resize_keyboard' => true,
             'one_time_keyboard' => true,
-
         ];
         return Telegram::replyKeyboardMarkup($reply_markup);
     }
