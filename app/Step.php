@@ -40,7 +40,9 @@ class Step extends Model
             2 => [
                 'name' => 'department',
                 'message' => "Оберіть відділ:",
-                'keyboard' => Department::all()->pluck('name')->toArray(),
+                'keyboard' => [
+                    Department::all()->pluck('name')->toArray()
+                ],
             ]
         ];
 

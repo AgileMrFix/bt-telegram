@@ -32,11 +32,10 @@ Route::get('rem', function () {
 
 Route::get('send', function () {
     $reply_markup = [
-        'keyboard' => null,
+        'keyboard' => [['123','123']],
         'resize_keyboard' => true,
         'one_time_keyboard' => true
     ];
-    $reply_markup = \Telegram\Bot\Keyboard\Keyboard::remove();
 
     $response = Telegram::sendMessage(['text' => 'asd', 'chat_id' => 357906340, 'reply_markup'=>$reply_markup]);
     return $response;

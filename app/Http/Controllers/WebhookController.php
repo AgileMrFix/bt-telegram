@@ -100,7 +100,6 @@ class WebhookController extends Controller
                     $this->commandProcessing($this->message['text']);
                     return;
                 }
-                Log::info('text');
                 $this->textProcessing->processText($this->message['text']);
                 $this->textProcessing->sendMessage('ok');
                 break;
