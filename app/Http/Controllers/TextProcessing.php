@@ -98,7 +98,7 @@ class TextProcessing
     {
         switch ($action = $this->step->action) {
             case 0:
-
+\Log::info(0);
                 $actionData = Step::getDataForEmployee($action);
                 $data = $this->unitStepData([$actionData['name'] => $this->text]);
 
@@ -109,6 +109,7 @@ class TextProcessing
 
                 break;
             case 1:
+\Log::info(1);
                 $actionData = Step::getDataForEmployee($action);
                 $data = $this->unitStepData([$actionData['name'] => $this->text]);
 
@@ -118,6 +119,7 @@ class TextProcessing
                 $this->setStep($this->step->type, $data, $action + 1);
                 break;
             case 2:
+\Log::info(2);
                 $actionData = Step::getDataForEmployee($action);
 
                 if (($department_id = $this->validateDepartment()) !== false) {
