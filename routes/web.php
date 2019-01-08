@@ -38,7 +38,7 @@ Route::get('send', function () {
 
     ];
     $reply_markup = [
-        'remove_keyboard' => false,
+        'remove_keyboard' => true,
     ];
 
     $reply_markup = Telegram::replyKeyboardMarkup($reply_markup);
