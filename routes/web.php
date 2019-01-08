@@ -34,7 +34,7 @@ Route::get('send', function () {
     $reply_markup = [
         'keyboard' => [['123', '345']],
         'resize_keyboard' => true,
-        'one_time_keyboard' => false
+        'one_time_keyboard' => true
     ];
 
     $reply_markup = Telegram::replyKeyboardMarkup($reply_markup);
