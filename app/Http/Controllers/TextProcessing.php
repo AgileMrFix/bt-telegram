@@ -120,7 +120,7 @@ class TextProcessing
             case 2:
                 $actionData = Step::getDataForEmployee($action);
 
-                if (($department_id = $this->validateText()) !== false) {
+                if (($department_id = $this->validateDepartment()) !== false) {
                     $data = $this->unitStepData([$actionData['name'] => $department_id]);
                     $employee = $this->telegramUser->employee()->create(json_decode($data, true));
 
