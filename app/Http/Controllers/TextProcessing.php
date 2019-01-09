@@ -62,6 +62,8 @@ class TextProcessing
             case Step::TYPE_WAIT:
                 $this->checkWaitData();
                 break;
+            case Step::TYPE_SUGGESTION:
+                $this->checkSuggestionData();
         }
 
     }
@@ -147,7 +149,7 @@ class TextProcessing
                 $text = iconv('CP1251', 'UTF-8', $text);
                 $text = preg_replace('/\s\s+/', ' ', $text);
                 $text = json_decode($text, true);
-                $message = array_key_exists('content', $text) ? $text['content'] : null;
+                $message = is_null($text) ? 'Сервер не доступний, спробуйте пізніше...' : $text['content'];
                 $reply_markup = $this->getMainKeyboard();
                 $this->sendMessage($message, $reply_markup);
                 break;
