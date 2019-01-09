@@ -151,7 +151,6 @@ class TextProcessing
                 $text = json_decode($text, true);
                 $message = is_null($text) ? 'Сервер не доступний, спробуйте пізніше...' : $text['content'];
                 $reply_markup = $this->getMainKeyboard();
-                $this->sendMessage($message, $reply_markup);
                 break;
             case 'Запропонувати функцію':
                 $this->setStep(Step::TYPE_SUGGESTION);
