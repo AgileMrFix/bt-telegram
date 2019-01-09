@@ -59,7 +59,8 @@ class TextProcessing
             case Step::TYPE_EMPLOYEE:
                 $this->checkEmployeeData();
                 break;
-            case Step::TYPE_DEPARTMENT:
+            case Step::TYPE_WAIT:
+                $this->checkWaitData();
                 break;
         }
 
@@ -83,20 +84,6 @@ class TextProcessing
         return;
     }
 
-    public function sendMessage($texts, $reply_markup = [], $chat_id = null)
-    {
-        $chat_id = is_null($chat_id) ? $this->telegramUser->id : $chat_id;
-        if (gettype($texts) == gettype([])) {
-            foreach ($texts as $text) {
-                Telegram::sendMessage(compact('chat_id', 'text', 'reply_markup'));
-            }
-
-        } else {
-            $text = $texts;
-            Telegram::sendMessage(compact('chat_id', 'text', 'reply_markup'));
-        }
-        return;
-    }
 
     protected function setStep($type, $data = "[]", $action = 0)
     {
@@ -152,6 +139,37 @@ class TextProcessing
         }
     }
 
+    protected function checkWaitData()
+    {
+        switch ($this->text) {
+            case 'Розповісти анекдот':
+                $text = file_get_contents('http://rzhunemogu.ru/RandJSON.aspx?CType=1');
+                $text = iconv('CP1251', 'UTF-8', $text);
+                $text = preg_replace('/\s\s+/', ' ', $text);
+                $text = json_decode($text, true);
+                $message = array_key_exists('content', $text) ? $text['content'] : null;
+                $reply_markup = $this->getMainKeyboard();
+                $this->sendMessage($message, $reply_markup);
+                break;
+            case 'Запропонувати функцію':
+                $this->setStep(Step::TYPE_SUGGESTION);
+                $message = ["Уважно слухаю!", "Які будуть побажання?"];
+                $reply_markup = $this->getKeyboard();
+                break;
+            default:
+                $message = 'Тобі краще обрати команду із запропонованих';
+                $reply_markup = $this->getMainKeyboard();
+        }
+        $this->sendMessage($message, $reply_markup);
+    }
+
+    protected function checkSuggestionData()
+    {
+        $this->setStep(Step::TYPE_WAIT);
+        $message = 'Дякую, прийму до уваги.';
+        $this->sendMessage($message, $this->getMainKeyboard());
+    }
+
 
     /**
      * @param $newPart array
@@ -175,6 +193,22 @@ class TextProcessing
         return $search;
     }
 
+    public function sendMessage($texts, $reply_markup = null, $chat_id = null)
+    {
+        $reply_markup = $reply_markup ?? $this->getKeyboard();
+        $chat_id = is_null($chat_id) ? $this->telegramUser->id : $chat_id;
+        if (gettype($texts) == gettype([])) {
+            foreach ($texts as $text) {
+                Telegram::sendMessage(compact('chat_id', 'text', 'reply_markup'));
+            }
+
+        } else {
+            $text = $texts;
+            Telegram::sendMessage(compact('chat_id', 'text', 'reply_markup'));
+        }
+        return;
+    }
+
     protected function getKeyboard($keyboard = null)
     {
         if (is_null($keyboard))
@@ -190,8 +224,11 @@ class TextProcessing
 
     protected function getMainKeyboard()
     {
-        $data = null;
-        return $this->getKeyboard($data);
+        $keyboard = [
+            ['Розповісти анекдот'],
+            ['Запропонувати функцію']
+        ];
+        return $this->getKeyboard($keyboard);
     }
 
 

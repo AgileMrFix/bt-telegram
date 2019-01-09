@@ -11,7 +11,7 @@ class Step extends Model
     const TYPE_WAIT = 'wait';
 
     const TYPE_EMPLOYEE = 'employee';
-    const TYPE_DEPARTMENT = 'department';
+    const TYPE_SUGGESTION = 'suggestion';
 
     protected $guarded = [
         'id'

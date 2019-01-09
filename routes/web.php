@@ -32,6 +32,12 @@ Route::get('rem', function () {
 
 Route::get('send', function () {
 
+    $text = file_get_contents('http://rzhunemogu.ru/RandJSON.aspx?CType=1');
+    $text = iconv('CP1251', 'UTF-8', $text);
+    $text = preg_replace('/\s\s+/', ' ', $text);
+    $text = json_decode($text, true);
+$text =    $text['content'];
+
     $data = [];
     foreach (\App\Models\Telegram\Department::all()->pluck('name')->toArray() as $item) {
         $data[] = [$item];
@@ -39,7 +45,6 @@ Route::get('send', function () {
 
     $keyboard = $data;
 
-    return $keyboard;
     $reply_markup = [
         'keyboard' => $keyboard,
         'resize_keyboard' => true,
@@ -47,9 +52,9 @@ Route::get('send', function () {
 
     ];
 
-
     $reply_markup = Telegram::replyKeyboardMarkup($reply_markup);
-    $response = Telegram::sendMessage(['text' => now()->timestamp, 'chat_id' => 357906340, 'reply_markup' => $reply_markup]);
+    $response = Telegram::sendMessage(['text' => $text, 'chat_id' => 357906340, 'reply_markup' => $reply_markup]);
+
     return $response;
 });
 
