@@ -15,7 +15,7 @@ class CreateMadeProductsTable extends Migration
     {
         Schema::create('made_products', function (Blueprint $table) {
             $table->integer('string_number')->index();
-            $table->integer('production_report_id')->index();
+            $table->string('production_report_number')->index();
             $table->string('name');
             $table->string('option_uid');
             $table->string('option');
@@ -23,7 +23,7 @@ class CreateMadeProductsTable extends Migration
             $table->string('weight');
             $table->timestamps();
 
-            $table->unique(['string_number', 'production_report_id']);
+            $table->unique(['string_number', 'production_report_number']);
         });
 
 
