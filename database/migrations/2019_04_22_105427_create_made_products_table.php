@@ -17,7 +17,7 @@ class CreateMadeProductsTable extends Migration
             $table->increments('id');
             $table->integer('production_report_id')->index();
             $table->string('name');
-            $table->string('product_number');
+            $table->string('option_uid');
             $table->string('option');
             $table->string('amount');
             $table->string('weight');
